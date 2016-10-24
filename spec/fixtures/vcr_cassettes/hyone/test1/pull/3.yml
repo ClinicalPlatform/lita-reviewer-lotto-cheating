@@ -1,0 +1,136 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/hyone/test1/pulls/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.3.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 19 Oct 2016 09:50:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '50'
+      X-Ratelimit-Reset:
+      - '1476873033'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Vary:
+      - Accept
+      - Accept-Encoding
+      Etag:
+      - W/"325390d019eb05523e30a9a591d7ccb6"
+      Last-Modified:
+      - Wed, 19 Oct 2016 09:01:40 GMT
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+      X-Github-Request-Id:
+      - 7600EF31:06D7:32632A1:580741E8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"url":"https://api.github.com/repos/hyone/test1/pulls/3","id":89936956,"html_url":"https://github.com/hyone/test1/pull/3","diff_url":"https://github.com/hyone/test1/pull/3.diff","patch_url":"https://github.com/hyone/test1/pull/3.patch","issue_url":"https://api.github.com/repos/hyone/test1/issues/3","number":3,"state":"open","locked":false,"title":"Add
+        a","user":{"login":"hyone","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/hyone","html_url":"https://github.com/hyone","followers_url":"https://api.github.com/users/hyone/followers","following_url":"https://api.github.com/users/hyone/following{/other_user}","gists_url":"https://api.github.com/users/hyone/gists{/gist_id}","starred_url":"https://api.github.com/users/hyone/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hyone/subscriptions","organizations_url":"https://api.github.com/users/hyone/orgs","repos_url":"https://api.github.com/users/hyone/repos","events_url":"https://api.github.com/users/hyone/events{/privacy}","received_events_url":"https://api.github.com/users/hyone/received_events","type":"User","site_admin":false},"body":"Add
+        ''a''","created_at":"2016-10-19T03:37:01Z","updated_at":"2016-10-19T09:01:40Z","closed_at":null,"merged_at":null,"merge_commit_sha":"7d3e4e4ed9494cadb850018b24f2e16c08cf342e","assignee":null,"assignees":[],"milestone":null,"commits_url":"https://api.github.com/repos/hyone/test1/pulls/3/commits","review_comments_url":"https://api.github.com/repos/hyone/test1/pulls/3/comments","review_comment_url":"https://api.github.com/repos/hyone/test1/pulls/comments{/number}","comments_url":"https://api.github.com/repos/hyone/test1/issues/3/comments","statuses_url":"https://api.github.com/repos/hyone/test1/statuses/486f6f44465c1a90695f686742f75f9260a34034","head":{"label":"hyone:branch1","ref":"branch1","sha":"486f6f44465c1a90695f686742f75f9260a34034","user":{"login":"hyone","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/hyone","html_url":"https://github.com/hyone","followers_url":"https://api.github.com/users/hyone/followers","following_url":"https://api.github.com/users/hyone/following{/other_user}","gists_url":"https://api.github.com/users/hyone/gists{/gist_id}","starred_url":"https://api.github.com/users/hyone/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hyone/subscriptions","organizations_url":"https://api.github.com/users/hyone/orgs","repos_url":"https://api.github.com/users/hyone/repos","events_url":"https://api.github.com/users/hyone/events{/privacy}","received_events_url":"https://api.github.com/users/hyone/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"hyone/test1","owner":{"login":"hyone","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/hyone","html_url":"https://github.com/hyone","followers_url":"https://api.github.com/users/hyone/followers","following_url":"https://api.github.com/users/hyone/following{/other_user}","gists_url":"https://api.github.com/users/hyone/gists{/gist_id}","starred_url":"https://api.github.com/users/hyone/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hyone/subscriptions","organizations_url":"https://api.github.com/users/hyone/orgs","repos_url":"https://api.github.com/users/hyone/repos","events_url":"https://api.github.com/users/hyone/events{/privacy}","received_events_url":"https://api.github.com/users/hyone/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/hyone/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/hyone/test1","forks_url":"https://api.github.com/repos/hyone/test1/forks","keys_url":"https://api.github.com/repos/hyone/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/hyone/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/hyone/test1/teams","hooks_url":"https://api.github.com/repos/hyone/test1/hooks","issue_events_url":"https://api.github.com/repos/hyone/test1/issues/events{/number}","events_url":"https://api.github.com/repos/hyone/test1/events","assignees_url":"https://api.github.com/repos/hyone/test1/assignees{/user}","branches_url":"https://api.github.com/repos/hyone/test1/branches{/branch}","tags_url":"https://api.github.com/repos/hyone/test1/tags","blobs_url":"https://api.github.com/repos/hyone/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/hyone/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/hyone/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/hyone/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/hyone/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/hyone/test1/languages","stargazers_url":"https://api.github.com/repos/hyone/test1/stargazers","contributors_url":"https://api.github.com/repos/hyone/test1/contributors","subscribers_url":"https://api.github.com/repos/hyone/test1/subscribers","subscription_url":"https://api.github.com/repos/hyone/test1/subscription","commits_url":"https://api.github.com/repos/hyone/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/hyone/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/hyone/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/hyone/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/hyone/test1/contents/{+path}","compare_url":"https://api.github.com/repos/hyone/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/hyone/test1/merges","archive_url":"https://api.github.com/repos/hyone/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/hyone/test1/downloads","issues_url":"https://api.github.com/repos/hyone/test1/issues{/number}","pulls_url":"https://api.github.com/repos/hyone/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/hyone/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/hyone/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/hyone/test1/labels{/name}","releases_url":"https://api.github.com/repos/hyone/test1/releases{/id}","deployments_url":"https://api.github.com/repos/hyone/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-19T03:37:01Z","git_url":"git://github.com/hyone/test1.git","ssh_url":"git@github.com:hyone/test1.git","clone_url":"https://github.com/hyone/test1.git","svn_url":"https://github.com/hyone/test1","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":3,"forks":0,"open_issues":3,"watchers":0,"default_branch":"master"}},"base":{"label":"hyone:master","ref":"master","sha":"b8d21cf43e1d5056190f28ea2133777a5c691de1","user":{"login":"hyone","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/hyone","html_url":"https://github.com/hyone","followers_url":"https://api.github.com/users/hyone/followers","following_url":"https://api.github.com/users/hyone/following{/other_user}","gists_url":"https://api.github.com/users/hyone/gists{/gist_id}","starred_url":"https://api.github.com/users/hyone/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hyone/subscriptions","organizations_url":"https://api.github.com/users/hyone/orgs","repos_url":"https://api.github.com/users/hyone/repos","events_url":"https://api.github.com/users/hyone/events{/privacy}","received_events_url":"https://api.github.com/users/hyone/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"hyone/test1","owner":{"login":"hyone","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/hyone","html_url":"https://github.com/hyone","followers_url":"https://api.github.com/users/hyone/followers","following_url":"https://api.github.com/users/hyone/following{/other_user}","gists_url":"https://api.github.com/users/hyone/gists{/gist_id}","starred_url":"https://api.github.com/users/hyone/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hyone/subscriptions","organizations_url":"https://api.github.com/users/hyone/orgs","repos_url":"https://api.github.com/users/hyone/repos","events_url":"https://api.github.com/users/hyone/events{/privacy}","received_events_url":"https://api.github.com/users/hyone/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/hyone/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/hyone/test1","forks_url":"https://api.github.com/repos/hyone/test1/forks","keys_url":"https://api.github.com/repos/hyone/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/hyone/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/hyone/test1/teams","hooks_url":"https://api.github.com/repos/hyone/test1/hooks","issue_events_url":"https://api.github.com/repos/hyone/test1/issues/events{/number}","events_url":"https://api.github.com/repos/hyone/test1/events","assignees_url":"https://api.github.com/repos/hyone/test1/assignees{/user}","branches_url":"https://api.github.com/repos/hyone/test1/branches{/branch}","tags_url":"https://api.github.com/repos/hyone/test1/tags","blobs_url":"https://api.github.com/repos/hyone/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/hyone/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/hyone/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/hyone/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/hyone/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/hyone/test1/languages","stargazers_url":"https://api.github.com/repos/hyone/test1/stargazers","contributors_url":"https://api.github.com/repos/hyone/test1/contributors","subscribers_url":"https://api.github.com/repos/hyone/test1/subscribers","subscription_url":"https://api.github.com/repos/hyone/test1/subscription","commits_url":"https://api.github.com/repos/hyone/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/hyone/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/hyone/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/hyone/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/hyone/test1/contents/{+path}","compare_url":"https://api.github.com/repos/hyone/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/hyone/test1/merges","archive_url":"https://api.github.com/repos/hyone/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/hyone/test1/downloads","issues_url":"https://api.github.com/repos/hyone/test1/issues{/number}","pulls_url":"https://api.github.com/repos/hyone/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/hyone/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/hyone/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/hyone/test1/labels{/name}","releases_url":"https://api.github.com/repos/hyone/test1/releases{/id}","deployments_url":"https://api.github.com/repos/hyone/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-19T03:37:01Z","git_url":"git://github.com/hyone/test1.git","ssh_url":"git@github.com:hyone/test1.git","clone_url":"https://github.com/hyone/test1.git","svn_url":"https://github.com/hyone/test1","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":3,"forks":0,"open_issues":3,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/hyone/test1/pulls/3"},"html":{"href":"https://github.com/hyone/test1/pull/3"},"issue":{"href":"https://api.github.com/repos/hyone/test1/issues/3"},"comments":{"href":"https://api.github.com/repos/hyone/test1/issues/3/comments"},"review_comments":{"href":"https://api.github.com/repos/hyone/test1/pulls/3/comments"},"review_comment":{"href":"https://api.github.com/repos/hyone/test1/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/hyone/test1/pulls/3/commits"},"statuses":{"href":"https://api.github.com/repos/hyone/test1/statuses/486f6f44465c1a90695f686742f75f9260a34034"}},"merged":false,"mergeable":true,"mergeable_state":"clean","merged_by":null,"comments":8,"review_comments":0,"commits":1,"additions":0,"deletions":0,"changed_files":1}'
+    http_version: 
+  recorded_at: Wed, 19 Oct 2016 09:50:33 GMT
+- request:
+    method: post
+    uri: https://api.github.com/repos/hyone/test1/issues/3/comments
+    body:
+      encoding: UTF-8
+      string: '{"body":" and  are the reviewers!!"}'
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.3.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 19 Oct 2016 09:50:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '91'
+      Status:
+      - 401 Unauthorized
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Ratelimit-Reset:
+      - '1476873033'
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Github-Request-Id:
+      - 7600EF31:06D8:78B603E:580741E9
+    body:
+      encoding: UTF-8
+      string: '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'
+    http_version: 
+  recorded_at: Wed, 19 Oct 2016 09:50:33 GMT
+recorded_with: VCR 3.0.3

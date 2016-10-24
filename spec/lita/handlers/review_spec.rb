@@ -1,4 +1,62 @@
 require "spec_helper"
 
 describe Lita::Handlers::Review, lita_handler: true do
+  describe 'route' do
+    context 'with valid argument' do
+      it { is_expected.to route_command('review http://www.example.com/').to(:lookup_reviewers) }
+    end
+
+    context 'with invalid argument' do
+      it { is_expected.not_to route_command('review hoge').to(:lookup_reviewers) }
+    end
+
+    context 'without arguments' do
+      it { is_expected.not_to route_command('review').to(:lookup_reviewers) }
+    end
+
+    context 'when not command' do
+      it { is_expected.not_to route('review http://www.example.com/').to(:lookup_reviewers) }
+    end
+  end
+
+  describe 'integration' do
+    subject { replies.last }
+
+    context 'with non http(s) URL' do
+      before { send_command('review ftp://github.com/hyone/test1/pull/3') }
+      it { is_expected.to eq 'Error: "ftp://github.com/hyone/test1/pull/3" is not github pullrequest URL.' }
+    end
+
+    context 'with non pullrequest URL' do
+      before { send_command('review https://github.com/hyone/test1/pul') }
+      it { is_expected.to eq 'Error: "https://github.com/hyone/test1/pul" is not github pullrequest URL.' }
+    end
+
+    context 'with non existing pullrequest' do
+      before do
+        VCR.use_cassette('hyone/test1/pull/9999') do
+          send_command('review https://github.com/hyone/test1/pull/9999')
+        end
+      end
+
+      it { is_expected.to include '404 - Not Found' }
+    end
+
+    context 'with valid pullrequest' do
+      before do
+        # mock `write_pr_comment` method
+        allow_any_instance_of(Lita::Handlers::Review).to \
+          receive(:write_pr_comment).and_return(:nil)
+        # mock `choice_reviewers` method
+        allow_any_instance_of(Lita::Handlers::Review).to \
+          receive(:select_reviewers).and_return(['foo', 'bar'])
+
+        VCR.use_cassette('hyone/test1/pull/3') do
+          send_command('review https://github.com/hyone/test1/pull/3')
+        end
+      end
+
+      it { is_expected.to eq '@foo and @bar are selected as the reviewers for https://github.com/hyone/test1/pull/3!!' }
+    end
+  end
 end
