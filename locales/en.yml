@@ -2,13 +2,14 @@ en:
   lita:
     handlers:
       review:
+        application_name: 'Lita Reviewer'
         help:
           description: "Choice 2 reviewer for the github pull request"
         error:
           invalid_uri: "\"%{uri}\" is not github pullrequest URL."
           comment_failure: "Failed to write comment: %{text}"
-        reply:
+        message:
           already_assigned: "%{uri} has already assigned to reviewers." 
-          selected_reviewers:
-            chat: "%{reviewers} are selected as the reviewers for %{uri}!!"
-            comment: "%{reviewers} are selected as the reviewers!!"
+          assigned_reviewers:
+            chat: "%{reviewers} are assigned as the reviewers for %{uri}!!"
+            comment: "%{reviewers} are assigned as the reviewers!!"
