@@ -1,7 +1,7 @@
 en:
   lita:
     handlers:
-      review:
+      reviewer:
         application_name: 'Lita Reviewer'
         help:
           description: "Choice 2 reviewer for the github pull request"

@@ -1,13 +1,13 @@
-# lita-review
+# lita-reviewer
 
 TODO: Add a description of the plugin.
 
 ## Installation
 
-Add lita-review to your Lita instance's Gemfile:
+Add lita-reviewer to your Lita instance's Gemfile:
 
 ``` ruby
-gem "lita-review"
+gem "lita-reviewer"
 ```
 
 ## Configuration

@@ -7,7 +7,7 @@ require 'uri'
 
 module Lita
   module Handlers
-    class Review < Handler
+    class Reviewer < Handler
       REDIS_PULLREQUESTS_KEY         = 'pullrequests'
       REDIS_ORDERED_PULLREQUESTS_KEY = 'pullrequests_ordered'
       REDIS_USERS_KEY                = 'users'
@@ -41,7 +41,7 @@ module Lita
 
       def assign_reviewers_to_all(_payload)
         return logger.info(
-          %('config.handlers.review.repositories' is not set. exit.)
+          %('config.handlers.reviewer.repositories' is not set, exit.)
         ) unless config.repositories
 
         prs = pull_requests(config.repositories)

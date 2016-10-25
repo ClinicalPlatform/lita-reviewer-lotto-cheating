@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
-  spec.name          = 'lita-review'
+  spec.name          = 'lita-reviewer'
   spec.version       = '0.1.0'
   spec.authors       = ['hyone']
   spec.email         = ['hyone.development@gmail.com']
-  spec.description   = 'choice random reviewrs with equal frequency in everyone'
-  spec.summary       = 'choice random reviewrs with equal frequency in everyone'
+  spec.description   = 'choice reviewers for pullrequest'
+  spec.summary       = 'choice reviewers for pullrequest'
   spec.homepage      = 'https://hyone-lita-sample.herokuapp.com'
   spec.license       = 'MIT'
   spec.metadata      = { 'lita_plugin_type' => 'handler' }

@@ -1,4 +1,4 @@
-require 'lita-review'
+require 'lita-reviewer'
 require 'lita/rspec'
 require 'vcr'
 

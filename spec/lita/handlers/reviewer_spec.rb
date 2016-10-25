@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Lita::Handlers::Review, lita_handler: true do
+describe Lita::Handlers::Reviewer, lita_handler: true do
   describe 'route' do
-    context 'review' do
+    context 'reviewer' do
       context 'with valid argument' do
         it { is_expected.to route_command('reviewer http://www.example.com/').to(:lookup_reviewers) }
       end
@@ -47,10 +47,10 @@ describe Lita::Handlers::Review, lita_handler: true do
     context 'with valid pullrequest' do
       before do
         # mock `write_pr_comment` method
-        allow_any_instance_of(Lita::Handlers::Review).to \
+        allow_any_instance_of(Lita::Handlers::Reviewer).to \
           receive(:write_pr_comment).and_return(:nil)
         # mock `choice_reviewers` method
-        allow_any_instance_of(Lita::Handlers::Review).to \
+        allow_any_instance_of(Lita::Handlers::Reviewer).to \
           receive(:select_reviewers).and_return(['foo', 'bar'])
 
         VCR.use_cassette('hyone/test1/pull/3') do
