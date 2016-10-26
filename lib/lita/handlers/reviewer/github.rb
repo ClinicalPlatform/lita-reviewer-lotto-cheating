@@ -8,7 +8,7 @@ module Lita
       class Github
         extend Forwardable
 
-        def_delegators :@client, :pull_request
+        def_delegators :@client, :add_comment, :create_status, :pull_request
 
         def initialize(access_token)
           @client = Octokit::Client.new(access_token: access_token)
@@ -16,15 +16,6 @@ module Lita
 
         def write_comment(pr, text)
           @client.add_comment(pr.repo, pr.number, text)
-        end
-
-        # display in status check
-        def create_status(pr, title, text)
-          @client.create_status(
-            pr.repo, pr.latest_commit, :pending,
-            context: title,
-            description: text
-          )
         end
 
         def pullrequests(repositories)

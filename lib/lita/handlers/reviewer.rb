@@ -5,9 +5,13 @@ require 'pry'
 require 'octokit'
 require 'uri'
 
-require 'lita/handlers/reviewer/github'
-require 'lita/handlers/reviewer/pullrequest'
-require 'lita/handlers/reviewer/user'
+require_relative 'registory'
+require_relative 'github'
+require_relative 'pullrequest'
+require_relative 'user'
+require_relative 'responsers/chat'
+require_relative 'responsers/github_comment'
+require_relative 'responsers/github_status_check'
 
 module Lita
   module Handlers
@@ -30,38 +34,31 @@ module Lita
               'reviewer GITHUB_PR_URL' => t('help.description')
             }
 
-      attr_reader :github
-
       def initialize(*args)
         super
 
         @github = Github.new(config.github_access_token)
 
-        [Pullrequest, User].each do |cls|
-          cls.prepare(redis, github) if cls.respond_to?(:prepare)
+        Registory.models.each do |klass|
+          klass.init(redis: redis, github: github) if klass.respond_to?(:init)
         end
       end
 
       def assign_reviewers_to_all(_payload)
         return logger.info(
-          %('config.handlers.reviewer.repositories' is not set, exit.)
+          "'config.handlers.reviewer.repositories' is not set, skip."
         ) unless config.repositories
 
         prs = Pullrequest.list(config.repositories)
-
         logger.debug("Found pullrequests: #{prs.map(&:path)}")
 
         prs.each do |pr|
-          assign_reviewers(pr)
+          reviewers = assign_reviewers(pr)
         end
       end
 
       def assign_reviewers_from_chat(response)
-        begin
-          assign_reviewers_from_url(response.matches[0][0])
-        rescue Error, Octokit::Error => e
-          send_error(e.message, target: response)
-        end
+        assign_reviewers_from_url(response.matches[0][0])
       end
 
       def assign_reviewers_from_url(url)
@@ -79,26 +76,10 @@ module Lita
 
         text = t('message.assigned_reviewers.comment',
                  reviewers: User.to_text(reviewers))
-        begin
-          github.write_comment(pr, text)
-        rescue Octokit::Error => e
-          return logger.error("Failed to write comment to the pullrequest page: #{e.message}")
-        end
-        begin
-          github.create_status(pr, t('application_name'), text)
-        rescue Octokit::Error => e
-          return logger.error("Failed to set status to the pullrequest page: #{e.message}")
-        end
 
-        target = Source.new(config.chat_target)
-        robot.send_message(target, t(
-          'message.assigned_reviewers.chat',
-          reviewers: User.to_text(reviewers),
-          url: pr.html_url,
-        ))
+        on_assigned(pr, reviewers)
 
         pr.save(reviewers)
-
         logger.info("Assigned #{User.to_text(reviewers)} as reviewers for #{pr.html_url}")
       end
 
@@ -118,19 +99,39 @@ module Lita
         end
       end
 
-      def send_error(text, target:)
-        text = "Error: #{text}"
-        case target
-        when Lita::Source
-          robot.send_message(target, text)
-        when Lita::Response
-          target.reply(text)
+      def on_assigned(pr, reviewers)
+        responsers.each do |responser|
+          if responser.respond_to?(:on_assigned)
+            begin
+              responser.on_assigned(pr, reviewers)
+            rescue Error, Octokit::Error => e
+              on_error(e.message)
+            end
         end
+      end
+
+      def on_error(text)
+        logger.error(text)
+
+        responsers.each do |responser|
+          responser.on_error(text) if responser.respond_to?(:on_error)
+        end
+      end
+
+      def responsers
+        @responsers ||=
+          Registory.responsers.map do |klass|
+            klass.new(robot: robot, github: github, config: config)
+          end
       end
 
       def logger
         Lita.logger
       end
+
+      private
+
+      attr_reader :github
 
       Lita.register_handler(self)
 

@@ -1,9 +1,10 @@
 require 'forwardable'
+require_relative 'model_base'
 
 module Lita
   module Handlers
-    class Reviewer < Handler
-      class Pullrequest
+    class Reviewer
+      class Pullrequest < ModelBase
         extend Forwardable
 
         attr_reader :redis
@@ -51,7 +52,7 @@ module Lita
         class << self
           attr_accessor :redis, :github
 
-          def prepare(redis, github)
+          def init(redis:, github:, **kwargs)
             @redis  = redis
             @github = github
           end

@@ -1,7 +1,9 @@
+require_relative 'model_base'
+
 module Lita
   module Handlers
     class Reviewer < Handler
-      class User
+      class User < ModelBase
         USERS_KEY = 'users'
 
         attr_accessor :name
@@ -23,7 +25,8 @@ module Lita
         end
 
         def screen_name
-          "@#{name}"
+          # "@#{name}"
+          "#{name}"
         end
 
         private
@@ -35,7 +38,7 @@ module Lita
         class << self
           attr_accessor :redis, :github
 
-          def prepare(redis, *_args)
+          def init(redis:, **kwargs)
             @redis = redis
           end
 
