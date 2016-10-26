@@ -5,23 +5,21 @@ require 'pry'
 require 'octokit'
 require 'uri'
 
+require 'lita/handlers/reviewer/github'
+require 'lita/handlers/reviewer/pullrequest'
+require 'lita/handlers/reviewer/user'
+
 module Lita
   module Handlers
     class Reviewer < Handler
-      REDIS_PULLREQUESTS_KEY         = 'pullrequests'
-      REDIS_ORDERED_PULLREQUESTS_KEY = 'pullrequests_ordered'
-      REDIS_USERS_KEY                = 'users'
-
-      config :github_access_token
+      config :github_access_token, type: String, required: true
       # repositories to review
-      config :repositories
+      config :repositories, type: [Object], required: true
       # duration time (second) from now, which is used to calculate review count
       # for specific user when selecting reviewers
-      config :reviewer_count_duration
-      # labels that is set to pullrequests for review
-      config :pr_labels
-      # default room(channel) or user to which this handler sends messages
-      config :default_chat_target
+      config :reviewer_count_duration, type: Numeric, default: 30 * 24 * 60 * 60
+      # room(channel) or user to which this handler sends messages
+      config :chat_target, type: Hash, default: { room: '#general' }
 
       on :connected, :assign_reviewers_to_all
 
@@ -32,11 +30,16 @@ module Lita
               'reviewer GITHUB_PR_URL' => t('help.description')
             }
 
+      attr_reader :github
+
       def initialize(*args)
         super
-        @gh_client = Octokit::Client.new(
-          access_token: config.github_access_token
-        )
+
+        @github = Github.new(config.github_access_token)
+
+        [Pullrequest, User].each do |cls|
+          cls.prepare(redis, github) if cls.respond_to?(:prepare)
+        end
       end
 
       def assign_reviewers_to_all(_payload)
@@ -44,8 +47,9 @@ module Lita
           %('config.handlers.reviewer.repositories' is not set, exit.)
         ) unless config.repositories
 
-        prs = pull_requests(config.repositories)
-        logger.debug("Found pullrequests: #{prs.map { |pr| URI.parse(pr.html_url).path }}")
+        prs = Pullrequest.list(config.repositories)
+
+        logger.debug("Found pullrequests: #{prs.map(&:path)}")
 
         prs.each do |pr|
           assign_reviewers(pr)
@@ -54,152 +58,64 @@ module Lita
 
       def assign_reviewers_from_chat(response)
         begin
-          assign_reviewers_from_uri(response.matches[0][0])
+          assign_reviewers_from_url(response.matches[0][0])
         rescue Error, Octokit::Error => e
           send_error(e.message, target: response)
         end
       end
 
-      def assign_reviewers_from_uri(uri)
-        repo_uri, pr_uri, pr_number = parse_uri(uri)
-        repo = Octokit::Repository.from_url("#{repo_uri}")
-        pr   = @gh_client.pull_request(repo, pr_number)
-
+      def assign_reviewers_from_url(url)
+        pr = Pullrequest.from_url(url)
         assign_reviewers(pr)
       end
 
       private
 
       def assign_reviewers(pr)
-        key = pr_key(pr)
-        return logger.info("#{pr.html_url} is already assigned") \
-          if redis.sismember(REDIS_PULLREQUESTS_KEY, pr.id)
+        return logger.info("#{pr.html_url} is already assigned") if pr.assigned?
 
-        reviewers = select_reviewers(*config.reviewer_count_duration)
-        logger.debug("Select #{reviewers} on #{pr.html_url}")
+        reviewers = select_reviewers(config.reviewer_count_duration)
+        logger.debug("Select #{User.to_text(reviewers)} on #{pr.path}")
 
+        text = t('message.assigned_reviewers.comment',
+                 reviewers: User.to_text(reviewers))
         begin
-          write_pr_comment(pr, reviewers)
+          github.write_comment(pr, text)
         rescue Octokit::Error => e
           return logger.error("Failed to write comment to the pullrequest page: #{e.message}")
         end
+        begin
+          github.create_status(pr, t('application_name'), text)
+        rescue Octokit::Error => e
+          return logger.error("Failed to set status to the pullrequest page: #{e.message}")
+        end
 
-        target = Source.new(room: '#general')
+        target = Source.new(config.chat_target)
         robot.send_message(target, t(
           'message.assigned_reviewers.chat',
-          reviewers: reviewers.map { |s| "@#{s}" }.join(', '),
-          uri: pr.html_url,
-        ) )
+          reviewers: User.to_text(reviewers),
+          url: pr.html_url,
+        ))
 
-        save_to_redis(key: key, pr_id: pr.id, reviewers: reviewers)
+        pr.save(reviewers)
 
-        logger.info("Assigned #{reviewers.join(', ')} as reviewers for #{pr.html_url}")
+        logger.info("Assigned #{User.to_text(reviewers)} as reviewers for #{pr.html_url}")
       end
 
-      def pull_requests(repositories)
-        repositories.map do |repository|
-          repo_name =
-            case repository
-            when String then repository
-            when Hash   then repository[:name]
-            end
-          options =
-            case repository
-            when Hash   then { labels: repository[:labels].join(',') }
-            else {}
-            end
-
-          repo   = Octokit::Repository.new(repo_name)
-          pulls  = @gh_client.pulls(repo_name)
-          issues = @gh_client.issues(repo_name, options).select { |i| i.pull_request }
-
-          issues.map do |issue|
-            pulls.find { |pull| pull.number == issue.number }
-          end.reject(&:nil?)
-        end.flatten
-      end
-
-      def parse_uri(uri)
-        pr_uri =
-          URI.parse(uri).tap do |u|
-            raise Error.new(t('error.invalid_uri', uri: u)) \
-              unless u.scheme =~ /^https?$/ and u.host == 'github.com'
-          end
-
-        _, repo_path, pr_number = pr_uri.path.match(%r|^((?:/[^/]+){2})/pull/(\d+).*$|).to_a
-        repo_uri                = pr_uri.clone().tap { |u| u.path = repo_path }
-        raise Error.new(t('error.invalid_uri', uri: uri)) \
-          unless repo_path and pr_number
-
-        [repo_uri, pr_uri, pr_number]
-      end
-
-      def select_reviewers_by_working_days(members)
-        members.select do |member|
-          working_days = redis.smembers("#{REDIS_USERS_KEY}:#{member}:working_days")
-                              .map(&:to_i)
-          working_days.include?(DateTime.now.cwday)
-        end
-      end
-
-      def select_reviewers(duration = 30 * 24 * 60 * 60)
-        # calculate count of reviewed for each user
-        now   = Time.now.to_i
-        start = now - duration
-        user_points = \
-          redis.zrangebyscore(REDIS_ORDERED_PULLREQUESTS_KEY, start, now)
-               .map { |k| redis.smembers(k) }
-               .flatten
-               .each_with_object({}) do |user, hash|
-                 hash[user] = hash.fetch(user, 0) + 1
-               end
+      def select_reviewers(duration)
+        user_points = Pullrequest.review_counts(duration: duration)
         logger.debug("Current reviewer counts: #{user_points}")
 
-        members = select_reviewers_by_working_days(
-          redis.smembers(REDIS_USERS_KEY)
-        )
+        users = User.list.select(&:working_today?)
 
-        siniors, juniors = members.partition do |user|
-          level = redis.get("#{REDIS_USERS_KEY}:#{user}:level").to_i
-          level > 1
-        end
-        reviewers = [siniors, juniors].map do |m|
+        siniors, juniors = users.partition { |user| user.level > 1 }
+        [siniors, juniors].map do |group|
           # when both users have the same reviewed count, then select randomly
-          sorted = m.sort_by { |u| [user_points.fetch(u, 0), [-1, 0, 1].sample] }
+          sorted = group.sort_by do |u|
+            [user_points.fetch(u.name, 0), [-1, 0, 1].sample]
+          end
           sorted.first
         end
-      end
-
-      # write comment to tell assignment of the reviewers to github pullrequest page
-      def write_pr_comment(pr, reviewers)
-        reviewers_text = reviewers.join(', ')
-        text = t('message.assigned_reviewers.comment',
-                 reviewers: reviewers_text)
-        repo = pr.head.repo.full_name
-
-        @gh_client.add_comment(repo, pr.number, text)
-        logger.debug("Wrote a comment on #{pr.html_url}")
-
-        # display in status check
-        @gh_client.create_status(
-          repo, pr.head.sha, :pending,
-          context: t('application_name'),
-          description: text
-        )
-        logger.debug("Set status on #{pr.html_url}")
-      end
-
-      def save_to_redis(key:, pr_id:, reviewers:)
-        # To detect whether or not it was reviewd in the future
-        redis.sadd(REDIS_PULLREQUESTS_KEY, pr_id)
-        # a review record which is used for review count calculation
-        redis.zadd(REDIS_ORDERED_PULLREQUESTS_KEY, Time.now.to_i, key)
-        # log to assing reviewers
-        redis.sadd(key, reviewers)
-      end
-
-      def pr_key(pr)
-        "#{REDIS_PULLREQUESTS_KEY}:#{URI.parse(pr.html_url).path}"
       end
 
       def send_error(text, target:)

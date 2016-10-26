@@ -15,7 +15,7 @@ Lita.configure do |config|
     },
     'hyone/test2'
   ]
-  config.handlers.reviewer.default_chat_target = {
+  config.handlers.reviewer.chat_target = {
     room: '#general'
   }
 

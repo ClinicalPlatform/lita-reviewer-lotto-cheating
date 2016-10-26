@@ -6,10 +6,10 @@ en:
         help:
           description: "Choice 2 reviewer for the github pull request"
         error:
-          invalid_uri: "\"%{uri}\" is not github pullrequest URL."
+          invalid_url: "\"%{url}\" is not github pullrequest URL."
           comment_failure: "Failed to write comment: %{text}"
         message:
-          already_assigned: "%{uri} has already assigned to reviewers." 
+          already_assigned: "%{url} has already assigned to reviewers." 
           assigned_reviewers:
-            chat: "%{reviewers} are assigned as the reviewers for %{uri}!!"
+            chat: "%{reviewers} are assigned as the reviewers for %{url}!!"
             comment: "%{reviewers} are assigned as the reviewers!!"
