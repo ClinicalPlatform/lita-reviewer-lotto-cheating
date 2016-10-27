@@ -1,6 +1,6 @@
 require_relative 'base'
 
-module Lita::Handlers::Reviewer::Responsers
+module Lita::Handlers::Reviewer::Responders
   # display in status check
   class GithubStatusCheck < Base
     def initialize(github:, **kwargs)

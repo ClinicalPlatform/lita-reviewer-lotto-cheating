@@ -9,9 +9,9 @@ require_relative 'pullrequest'
 require_relative 'registory'
 require_relative 'selector'
 require_relative 'user'
-require_relative 'responsers/chat'
-require_relative 'responsers/github_comment'
-require_relative 'responsers/github_status_check'
+require_relative 'responders/chat'
+require_relative 'responders/github_comment'
+require_relative 'responders/github_status_check'
 
 
 module Lita::Handlers::Reviewer
@@ -86,10 +86,10 @@ module Lita::Handlers::Reviewer
     end
 
     def on_assigned(pr, reviewers)
-      responsers.each do |responser|
-        next unless responser.respond_to?(:on_assigned)
+      responders.each do |responder|
+        next unless responder.respond_to?(:on_assigned)
         begin
-          responser.on_assigned(pr, reviewers)
+          responder.on_assigned(pr, reviewers)
         rescue Error, Octokit::Error => e
           on_error(e.message)
         end
@@ -99,14 +99,14 @@ module Lita::Handlers::Reviewer
     def on_error(text)
       logger.error(text)
 
-      responsers.each do |responser|
-        responser.on_error(text) if responser.respond_to?(:on_error)
+      responders.each do |responder|
+        responder.on_error(text) if responder.respond_to?(:on_error)
       end
     end
 
-    def responsers
-      @responsers ||=
-        Registory.responsers.map do |klass|
+    def responders
+      @responders ||=
+        Registory.responders.map do |klass|
           klass.new(robot: robot, github: @github, config: config)
         end
     end

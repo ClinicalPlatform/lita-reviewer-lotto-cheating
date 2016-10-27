@@ -1,10 +1,10 @@
 require_relative '../registory'
 
-module Lita::Handlers::Reviewer::Responsers
+module Lita::Handlers::Reviewer::Responders
   class Base
     class << self
       def inherited(child)
-        Lita::Handlers::Reviewer::Registory.responsers << child
+        Lita::Handlers::Reviewer::Registory.responders << child
       end
     end
 

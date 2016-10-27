@@ -5,8 +5,8 @@ module Lita::Handlers::Reviewer
         @models ||= []
       end
 
-      def responsers
-        @responsers ||= []
+      def responders
+        @responders ||= []
       end
     end
   end
