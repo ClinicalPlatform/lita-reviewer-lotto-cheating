@@ -70,7 +70,7 @@ module Lita::Handlers::Reviewer
     private
 
     def key(field = nil)
-      "#{USERS_KEY}:#{name}#{field.present? ? ':' + field : ''}"
+      "#{USERS_KEY}:#{name}#{field.present? ? ":#{field}" : ''}"
     end
 
     class << self

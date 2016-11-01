@@ -10,3 +10,11 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
 end
+
+RSpec.configure do |config|
+  config.before(:each, model: true) do
+    stub_const("Lita::REDIS_NAMESPACE", "lita.test")
+    keys = Lita.redis.keys("*")
+    Lita.redis.del(keys) unless keys.empty?
+  end
+end
