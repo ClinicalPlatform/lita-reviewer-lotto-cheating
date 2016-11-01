@@ -2,16 +2,15 @@
 
 require 'pry'
 require 'uri'
-require_relative 'error'
-require_relative 'handler'
-require_relative 'models/pullrequest'
-require_relative 'models/user'
-require_relative 'responder'
-require_relative 'selector'
-
+require_relative '../error'
+require_relative '../models/pullrequest'
+require_relative '../models/user'
+require_relative '../responder'
+require_relative '../selector'
+require_relative 'base_handler'
 
 module Lita::Handlers::Reviewer
-  class Chat < Handler
+  class ChatHandler < BaseHandler
     namespace 'reviewer'
 
     config :github_access_token, type: String, required: true

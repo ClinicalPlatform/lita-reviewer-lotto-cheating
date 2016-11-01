@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'lita-keyword-arguments'
-require_relative 'handler'
-require_relative 'models/user'
+require_relative '../models/user'
+require_relative 'base_handler.rb'
 
 module Lita::Handlers::Reviewer
-  class Admin < Handler
+  class AdminHandler < BaseHandler
     namespace 'reviewer'
 
     route /reviewer\s+list\s*/, :list_user,
