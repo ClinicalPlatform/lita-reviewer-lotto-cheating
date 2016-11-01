@@ -1,12 +1,8 @@
 module Lita::Handlers::Reviewer
-  class Registory
+  class Model
     class << self
-      def models
+      def list
         @models ||= []
-      end
-
-      def responders
-        @responders ||= []
       end
     end
   end

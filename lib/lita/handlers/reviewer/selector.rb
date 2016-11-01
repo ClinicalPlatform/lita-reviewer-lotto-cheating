@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'pullrequest'
-require_relative 'user'
+require_relative 'models/pullrequest'
+require_relative 'models/user'
 
 module Lita::Handlers::Reviewer
   class Selector
@@ -28,4 +28,3 @@ module Lita::Handlers::Reviewer
     end
   end
 end
-

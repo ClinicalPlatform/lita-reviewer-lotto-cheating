@@ -4,11 +4,10 @@ require 'pry'
 require 'uri'
 require_relative 'error'
 require_relative 'handler'
-require_relative 'pullrequest'
-require_relative 'registory'
+require_relative 'models/pullrequest'
+require_relative 'models/user'
 require_relative 'responder'
 require_relative 'selector'
-require_relative 'user'
 
 
 module Lita::Handlers::Reviewer

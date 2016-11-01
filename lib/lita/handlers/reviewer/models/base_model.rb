@@ -1,9 +1,9 @@
-require_relative 'registory'
+require_relative '../model'
 
 module Lita::Handlers::Reviewer
-  class ModelBase
+  class BaseModel
     def self.inherited(child)
-      Registory.models << child
+      Model.list << child
     end
   end
 end

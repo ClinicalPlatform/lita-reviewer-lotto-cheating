@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/object/blank'
-require_relative 'model_base'
+require_relative 'base_model'
 
 module Lita::Handlers::Reviewer
-  class User < ModelBase
+  class User < BaseModel
     USERS_KEY = 'users'
 
     attr_accessor :name

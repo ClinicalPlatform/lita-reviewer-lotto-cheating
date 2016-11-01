@@ -1,5 +1,5 @@
+require_relative 'model'
 require_relative 'github'
-require_relative 'registory'
 
 module Lita::Handlers::Reviewer
   class Handler < Lita::Handler
@@ -8,8 +8,8 @@ module Lita::Handlers::Reviewer
 
       @github = Github.new(config.github_access_token)
 
-      Registory.models.each do |klass|
-        klass.init(redis: redis, github: @github) if klass.respond_to?(:init)
+      Model.list.each do |model_class|
+        model_class.init(redis: redis, github: @github) if model_class.respond_to?(:init)
       end
     end
   end

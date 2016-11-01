@@ -1,9 +1,9 @@
 require 'forwardable'
-require_relative 'error'
-require_relative 'model_base'
+require_relative '../error'
+require_relative 'base_model'
 
 module Lita::Handlers::Reviewer
-  class Pullrequest < ModelBase
+  class Pullrequest < BaseModel
     extend Forwardable
 
     attr_reader :redis

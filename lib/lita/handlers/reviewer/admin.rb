@@ -2,7 +2,7 @@
 
 require 'lita-keyword-arguments'
 require_relative 'handler'
-require_relative 'user'
+require_relative 'models/user'
 
 module Lita::Handlers::Reviewer
   class Admin < Handler
