@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Reviewer, lita_handler: true do
+describe Lita::Handlers::ReviewerLottoCheating, lita_handler: true do
   describe 'route' do
     context 'reviewer' do
       context 'with valid argument' do
@@ -47,10 +47,10 @@ describe Lita::Handlers::Reviewer, lita_handler: true do
     context 'with valid pullrequest' do
       before do
         # mock `write_pr_comment` method
-        allow_any_instance_of(Lita::Handlers::Reviewer).to \
+        allow_any_instance_of(Lita::Handlers::ReviewerLottoCheating).to \
           receive(:write_pr_comment).and_return(:nil)
         # mock `choice_reviewers` method
-        allow_any_instance_of(Lita::Handlers::Reviewer).to \
+        allow_any_instance_of(Lita::Handlers::ReviewerLottoCheating).to \
           receive(:select_reviewers).and_return(['foo', 'bar'])
 
         VCR.use_cassette('hyone/test1/pull/3') do

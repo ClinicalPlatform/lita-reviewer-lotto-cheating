@@ -2,7 +2,7 @@ require 'forwardable'
 require_relative '../error'
 require_relative 'base_model'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class Pullrequest < BaseModel
     extend Forwardable
 

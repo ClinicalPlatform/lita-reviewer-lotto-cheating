@@ -1,6 +1,6 @@
 require_relative 'base_responder'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class GithubCommentResponder < BaseResponder
     def initialize(github:, **kwargs)
       @github = github

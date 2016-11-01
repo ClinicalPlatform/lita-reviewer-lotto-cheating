@@ -3,7 +3,7 @@
 require 'active_support/core_ext/object/blank'
 require_relative 'base_model'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class User < BaseModel
     USERS_KEY = 'users'
 

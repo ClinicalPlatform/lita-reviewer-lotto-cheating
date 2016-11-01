@@ -3,7 +3,7 @@
 require 'forwardable'
 require 'octokit'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class Github
     extend Forwardable
 

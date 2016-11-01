@@ -1,5 +1,5 @@
 Gem::Specification.new do |spec|
-  spec.name          = 'lita-reviewer'
+  spec.name          = 'lita-reviewer-lotto-cheating'
   spec.version       = '0.1.0'
   spec.authors       = ['hyone']
   spec.email         = ['hyone.development@gmail.com']
@@ -28,3 +28,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
 end
+

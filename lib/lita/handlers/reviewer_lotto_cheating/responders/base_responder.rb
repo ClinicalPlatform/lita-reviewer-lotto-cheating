@@ -1,7 +1,7 @@
 require_relative '../common/traslatable'
 require_relative '../responder'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class BaseResponder
     include Translatable
 

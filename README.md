@@ -1,4 +1,4 @@
-# lita-reviewer
+# lita-reviewer-lotto-cheating
 
 TODO: Add a description of the plugin.
 
@@ -7,7 +7,7 @@ TODO: Add a description of the plugin.
 Add lita-reviewer to your Lita instance's Gemfile:
 
 ``` ruby
-gem "lita-reviewer"
+gem "lita-reviewer-lotto-cheating"
 ```
 
 ## Configuration

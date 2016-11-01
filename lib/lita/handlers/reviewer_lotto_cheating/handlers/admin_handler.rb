@@ -4,7 +4,7 @@ require 'lita-keyword-arguments'
 require_relative '../models/user'
 require_relative 'base_handler.rb'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class AdminHandler < BaseHandler
     namespace 'reviewer'
 

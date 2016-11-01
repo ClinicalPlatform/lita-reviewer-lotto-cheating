@@ -1,6 +1,6 @@
 require_relative 'base_responder'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   # display in status check
   class GithubStatusCheckResponder < BaseResponder
     def initialize(github:, **kwargs)

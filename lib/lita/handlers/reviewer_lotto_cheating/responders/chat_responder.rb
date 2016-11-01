@@ -1,7 +1,7 @@
 require 'lita'
 require_relative 'base_responder'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class ChatResponder < BaseResponder
     def initialize(robot:, config:, **kwargs)
       @robot  = robot

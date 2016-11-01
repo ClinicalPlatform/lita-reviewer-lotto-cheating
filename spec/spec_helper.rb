@@ -1,4 +1,4 @@
-require 'lita-reviewer'
+require 'lita-reviewer-lotto-cheating'
 require 'lita/rspec'
 require 'vcr'
 

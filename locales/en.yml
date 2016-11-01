@@ -1,8 +1,8 @@
 en:
   lita:
     handlers:
-      reviewer:
-        application_name: 'Lita Reviewer'
+      reviewer_lotto_cheating:
+        application_name: 'Lita Reviewer Lotto Cheating'
         help:
           reviewer: "Choice 2 reviewer for the GITHUB_PR_URL"
           list_user: "List current reviewers"

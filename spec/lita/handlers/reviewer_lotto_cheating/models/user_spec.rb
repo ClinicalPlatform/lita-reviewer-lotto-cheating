@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'lita/handlers/reviewer/models/user'
+require 'lita/handlers/reviewer_lotto_cheating/models/user'
 
-describe Lita::Handlers::Reviewer::User do
+describe Lita::Handlers::ReviewerLottoCheating::User do
   before do
     described_class.init(redis: Lita.redis)
   end

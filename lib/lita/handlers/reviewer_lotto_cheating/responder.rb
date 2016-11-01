@@ -1,4 +1,4 @@
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class Responder
     class << self
       def list

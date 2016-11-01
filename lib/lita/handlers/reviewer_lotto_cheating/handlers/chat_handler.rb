@@ -9,7 +9,7 @@ require_relative '../responder'
 require_relative '../selector'
 require_relative 'base_handler'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class ChatHandler < BaseHandler
     namespace 'reviewer'
 

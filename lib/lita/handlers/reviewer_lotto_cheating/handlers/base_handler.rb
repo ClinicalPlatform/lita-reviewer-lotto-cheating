@@ -1,7 +1,7 @@
 require_relative '../model'
 require_relative '../github'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class BaseHandler < Lita::Handler
     def initialize(*args)
       super

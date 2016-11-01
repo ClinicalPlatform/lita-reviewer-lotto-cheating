@@ -3,7 +3,7 @@
 require_relative 'models/pullrequest'
 require_relative 'models/user'
 
-module Lita::Handlers::Reviewer
+module Lita::Handlers::ReviewerLottoCheating
   class Selector
     attr_reader :logger
 

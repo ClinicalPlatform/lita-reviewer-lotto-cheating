@@ -4,9 +4,9 @@ Lita.load_locales Dir[File.expand_path(
   File.join('..', '..', 'locales', '*.yml'), __FILE__
 )]
 
-require 'lita/handlers/reviewer/handler'
+require 'lita/handlers/reviewer_lotto_cheating/handler'
 
-Lita::Handlers::Reviewer::ChatHandler.template_root File.expand_path(
+Lita::Handlers::ReviewerLottoCheating::ChatHandler.template_root File.expand_path(
   File.join('..', '..', 'templates'),
  __FILE__
 )
