@@ -65,9 +65,6 @@ module Lita::Handlers::Reviewer
       reviewers = Selector.new(logger: logger).call(config.reviewer_count_duration)
       logger.debug("Select #{User.to_text(reviewers)} on #{pr.path}")
 
-      text = t('message.assigned_reviewers.comment',
-               reviewers: User.to_text(reviewers))
-
       on_assigned(pr, reviewers)
 
       pr.save(reviewers)

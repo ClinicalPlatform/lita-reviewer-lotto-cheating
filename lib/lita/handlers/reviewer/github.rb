@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'octokit'
 
@@ -28,15 +30,18 @@ module Lita::Handlers::Reviewer
           else {}
           end
 
-        repo   = Octokit::Repository.new(repo_name)
-        pulls  = @client.pulls(repo_name)
-        # NOTE `pulls` API can't filter by labels, so we take pullrequests from `issues` API
-        issues = @client.issues(repo_name, options).select { |i| i.pull_request }
+        # NOTE `pulls` API can't filter it by labels, so we take pullrequests
+        #      from `issues` API
+        issues = @client.issues(repo_name, options)
+                        .select(&:pull_request)
 
-        # NOTE `issues` API responses can't have branch commits data for pullrequest,
-        #      so we should use data from `pulls` API by matching them with ones from `issues` API
+        # NOTE `issues` API responses can't include commits data of pullrequest,
+        #      so we should pull data from `pulls` API by matching them
+        #      with ones from `issues` API
+        pulls  = @client.pulls(repo_name)
+
         issues.map { |issue| pulls.find { |pull| pull.number == issue.number } }
-          .reject(&:nil?)
+              .reject(&:nil?)
       end.flatten
     end
   end
