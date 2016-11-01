@@ -14,11 +14,11 @@ Lita.configure do |config|
   config.handlers.reviewer_lotto_cheating.repositories = [
     # fetch only open pullrequests by tagged with 'レビュアー募集中' from 'foo/repo1'
     {
-      name: 'hyone/test1',
+      name: 'foo/repo1',
       labels: ['レビュアー募集中']
     },
     # fetch all open pullrequests from 'foo/repo2'
-    'hyone/test2'
+    'foo/repo2'
   ]
 
   # default chat tareget that this plugin responses
