@@ -4,12 +4,31 @@ en:
       reviewer:
         application_name: 'Lita Reviewer'
         help:
-          description: "Choice 2 reviewer for the github pull request"
+          reviewer: "Choice 2 reviewer for the GITHUB_PR_URL"
+          list_user: "List current reviewers"
+          add_user: "Add <USERNAME> to reviewers"
+          update_user: "Update <USERNAME> properties"
+          delete_user: "Delete <USERNAME> from reviewers"
         error:
           invalid_url: "\"%{url}\" is not github pullrequest URL."
+          invalid_argument: "invalid argument. see 'help'"
           comment_failure: "Failed to write comment: %{text}"
+          user_not_found: "User not found: %{name}"
+          user_already_exists: "User already exists: %{name}"
         message:
+          added: "%{name} is successfully added."
           already_assigned: "%{url} has already assigned to reviewers." 
           assigned_reviewers:
             chat: "%{reviewers} are assigned as the reviewers for %{url}!!"
             comment: "%{reviewers} are assigned as the reviewers!!"
+          deleted: "%{name} is successfully deleted."
+          updated: "%{name} is successfully updated."
+        date:
+          abbr_day_names:
+            - Sun
+            - Mon
+            - Tue
+            - Wed
+            - Thu
+            - Fri
+            - Sat

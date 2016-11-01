@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'pry'
-require 'octokit'
 require 'uri'
 require_relative 'error'
-require_relative 'github'
+require_relative 'handler'
 require_relative 'pullrequest'
 require_relative 'registory'
 require_relative 'responder'
@@ -13,7 +12,7 @@ require_relative 'user'
 
 
 module Lita::Handlers::Reviewer
-  class Chat < Lita::Handler
+  class Chat < Handler
     namespace 'reviewer'
 
     config :github_access_token, type: String, required: true
@@ -31,30 +30,23 @@ module Lita::Handlers::Reviewer
       :assign_reviewers_from_chat,
       command: true,
       help: {
-        'reviewer GITHUB_PR_URL' => t('help.description')
+        'reviewer GITHUB_PR_URL' => t('help.reviewer')
       }
-
-    def initialize(*args)
-      super
-
-      @github = Github.new(config.github_access_token)
-
-      Registory.models.each do |klass|
-        klass.init(redis: redis, github: @github) if klass.respond_to?(:init)
-      end
-    end
 
     def assign_reviewers_to_all(_payload)
       return logger.info(
         "'config.handlers.reviewer.repositories' is not set, skip."
       ) unless config.repositories
 
-      prs = Pullrequest.list(config.repositories)
+      begin
+        prs = Pullrequest.list(config.repositories)
+      rescue Octokit::Error => e
+        return on_error(e.message)
+      end
+
       logger.debug("Found pullrequests: #{prs.map(&:path)}")
 
-      prs.each do |pr|
-        reviewers = assign_reviewers(pr)
-      end
+      prs.each do |pr| assign_reviewers(pr) end
     end
 
     def assign_reviewers_from_chat(response)
