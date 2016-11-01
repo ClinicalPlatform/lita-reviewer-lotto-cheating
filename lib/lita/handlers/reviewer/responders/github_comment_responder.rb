@@ -1,7 +1,7 @@
-require_relative 'base'
+require_relative 'base_responder'
 
-module Lita::Handlers::Reviewer::Responders
-  class GithubComment < Base
+module Lita::Handlers::Reviewer
+  class GithubCommentResponder < BaseResponder
     def initialize(github:, **kwargs)
       @github = github
     end

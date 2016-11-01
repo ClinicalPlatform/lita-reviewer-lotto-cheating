@@ -7,11 +7,9 @@ require_relative 'error'
 require_relative 'github'
 require_relative 'pullrequest'
 require_relative 'registory'
+require_relative 'responder'
 require_relative 'selector'
 require_relative 'user'
-require_relative 'responders/chat'
-require_relative 'responders/github_comment'
-require_relative 'responders/github_status_check'
 
 
 module Lita::Handlers::Reviewer
@@ -106,8 +104,8 @@ module Lita::Handlers::Reviewer
 
     def responders
       @responders ||=
-        Registory.responders.map do |klass|
-          klass.new(robot: robot, github: @github, config: config)
+        Responder.list.map do |responder_class|
+          responder_class.new(robot: robot, github: @github, config: config)
         end
     end
 

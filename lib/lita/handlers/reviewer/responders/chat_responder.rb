@@ -1,8 +1,8 @@
 require 'lita'
-require_relative 'base'
+require_relative 'base_responder'
 
-module Lita::Handlers::Reviewer::Responders
-  class Chat < Base
+module Lita::Handlers::Reviewer
+  class ChatResponder < BaseResponder
     def initialize(robot:, config:, **kwargs)
       @robot  = robot
       @config = config
