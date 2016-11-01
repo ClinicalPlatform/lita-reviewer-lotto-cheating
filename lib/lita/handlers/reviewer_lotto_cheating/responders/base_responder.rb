@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../common/traslatable'
+require_relative '../common/translatable'
 require_relative '../responder'
 
 module Lita::Handlers::ReviewerLottoCheating
