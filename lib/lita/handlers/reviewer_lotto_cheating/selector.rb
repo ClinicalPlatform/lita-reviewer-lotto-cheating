@@ -2,6 +2,7 @@
 
 require_relative 'models/pullrequest'
 require_relative 'models/user'
+require_relative 'error'
 
 module Lita::Handlers::ReviewerLottoCheating
   class Selector
@@ -16,6 +17,7 @@ module Lita::Handlers::ReviewerLottoCheating
       logger.debug("Current reviewer counts: #{user_points}")
 
       users = User.list.select(&:working_today?)
+      raise Error.new('no user as reviewer candidation') if users.empty?
 
       siniors, juniors = users.partition { |user| user.level > 1 }
       [siniors, juniors].map do |group|

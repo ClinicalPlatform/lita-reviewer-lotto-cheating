@@ -11,7 +11,7 @@ require_relative 'base_handler'
 
 module Lita::Handlers::ReviewerLottoCheating
   class ChatHandler < BaseHandler
-    namespace 'reviewer'
+    namespace 'reviewer_lotto_cheating'
 
     config :github_access_token, type: String, required: true
     # repositories to review
@@ -61,7 +61,12 @@ module Lita::Handlers::ReviewerLottoCheating
     def assign_reviewers(pr)
       return logger.info("#{pr.html_url} is already assigned") if pr.assigned?
 
-      reviewers = Selector.new(logger: logger).call(config.reviewer_count_duration)
+      reviewers =
+        begin
+          Selector.new(logger: logger).call(config.reviewer_count_duration)
+        rescue Error => e
+          return on_error(e.message)
+        end
       logger.debug("Select #{User.to_text(reviewers)} on #{pr.path}")
 
       on_assigned(pr, reviewers)
