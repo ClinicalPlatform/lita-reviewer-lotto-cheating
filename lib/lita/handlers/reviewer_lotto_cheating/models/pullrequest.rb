@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require_relative '../error'
 require_relative 'base_model'

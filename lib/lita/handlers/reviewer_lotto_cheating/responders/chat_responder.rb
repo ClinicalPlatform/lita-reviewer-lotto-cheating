@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lita'
 require_relative 'base_responder'
 
