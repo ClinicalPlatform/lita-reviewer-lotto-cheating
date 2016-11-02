@@ -52,7 +52,12 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def assign_reviewers_from_url(url)
-      pr = Pullrequest.from_url(url)
+      begin
+        pr = Pullrequest.from_url(url)
+      rescue Error, Octokit::Error => e
+        return on_error(e.message)
+      end
+
       assign_reviewers(pr)
     end
 
