@@ -17,12 +17,28 @@ module Lita::Handlers::ReviewerLottoCheating
       @working_days = working_days
     end
 
+    def delete
+      [:level, :working_days].each do |field|
+        redis.del(key(field))
+      end
+      redis.srem(USERS_KEY, name)
+      true
+    end
+
     def exist?
       !redis.keys(key('*')).empty?
     end
 
+    def key(field = nil)
+      "#{USERS_KEY}:#{name}#{field.present? ? ":#{field}" : ''}"
+    end
+
     def level
       @level ||= redis.get(key(:level)).to_i
+    end
+
+    def level=(level)
+      @level = level
     end
 
     def save
@@ -34,43 +50,27 @@ module Lita::Handlers::ReviewerLottoCheating
       true
     end
 
-    def update(level: nil, working_days: nil)
-      return false unless exist?
-
-      redis.set(key(:level), level) if level
-      if working_days
-        redis.del(key(:working_days))
-        redis.sadd(key(:working_days), working_days)
-      end
-
-      true
-    end
-
-    def delete
-      [:level, :working_days].each do |field|
-        redis.del(key(field))
-      end
-      redis.srem(USERS_KEY, name)
-      true
-    end
-
     def screen_name
       # "@#{name}"
       name.to_s
+    end
+
+    def update(level: nil, working_days: nil)
+      self.level        = level if level
+      self.working_days = working_days if working_days
+      save
     end
 
     def working_days
       @working_days ||= redis.smembers(key(:working_days)).map(&:to_i)
     end
 
-    def working_today?
-      working_days.include?(DateTime.now.wday)
+    def working_days=(working_days)
+      @working_days = working_days
     end
 
-    private
-
-    def key(field = nil)
-      "#{USERS_KEY}:#{name}#{field.present? ? ":#{field}" : ''}"
+    def working_today?
+      working_days.include?(DateTime.now.wday)
     end
 
     class << self
