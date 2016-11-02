@@ -4,11 +4,11 @@ en:
       reviewer_lotto_cheating:
         application_name: 'Lita Reviewer Lotto Cheating'
         help:
-          reviewer: "Choice 2 reviewer for the GITHUB_PR_URL"
-          list_user: "List current reviewers"
-          add_user: "Add <USERNAME> to reviewers"
+          reviewer: "Choice 2 reviewers for GITHUB_PR_URL"
+          list_user: "List current reviewer candidates"
+          add_user: "Add <USERNAME> to reviewer candidates"
           update_user: "Update <USERNAME> properties"
-          delete_user: "Delete <USERNAME> from reviewers"
+          delete_user: "Delete <USERNAME> from reviewer candidates"
         error:
           invalid_url: "\"%{url}\" is not github pullrequest URL."
           invalid_argument: "invalid argument. see 'help'"
