@@ -99,12 +99,12 @@ module Lita::Handlers::ReviewerLottoCheating
 
       def parse_url(s)
         url = URI.parse(s).tap do |u|
-                raise Error.new(t('error.invalid_url', url: u)) \
+                raise Error.new("'#{u}' is not github pullrequest URL.") \
                   unless u.scheme =~ /^https?$/ and u.host == 'github.com'
               end
 
         _, repo_name, pr_number = url.path.match(%r|^/([^/]+/[^/]+)/pull/(\d+).*$|).to_a
-        raise Error.new(t('error.invalid_url', url: s)) \
+        raise Error.new("'#{s}' is not github pullrequest URL.") \
           unless repo_name and pr_number
 
         [repo_name, pr_number]

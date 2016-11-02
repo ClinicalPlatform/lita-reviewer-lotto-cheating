@@ -11,8 +11,7 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
 
     context 'when no reviewer candidation' do
       it 'raise Error' do
-        expect { subject }.to \
-          raise_error(Lita::Handlers::ReviewerLottoCheating::Error)
+        expect { subject }.to raise_error(NS::Error)
       end
     end
 
