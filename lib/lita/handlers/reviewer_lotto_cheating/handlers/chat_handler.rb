@@ -64,7 +64,8 @@ module Lita::Handlers::ReviewerLottoCheating
     private
 
     def assign_reviewers(pr)
-      return logger.info("#{pr.html_url} is already assigned") if pr.assigned?
+      return on_exit(t('message.already_assigned', url: pr.html_url)) \
+        if pr.assigned?
 
       reviewers =
         begin
@@ -96,6 +97,14 @@ module Lita::Handlers::ReviewerLottoCheating
 
       responders.each do |responder|
         responder.on_error(text) if responder.respond_to?(:on_error)
+      end
+    end
+
+    def on_exit(text)
+      logger.info("#{text}; exit.")
+
+      responders.each do |responder|
+        responder.on_exit(text) if responder.respond_to?(:on_exit)
       end
     end
 

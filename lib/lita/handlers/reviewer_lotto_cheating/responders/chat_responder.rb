@@ -27,5 +27,9 @@ module Lita::Handlers::ReviewerLottoCheating
       text = "Error: #{message}"
       @robot.send_message(@target, text)
     end
+
+    def on_exit(message)
+      @robot.send_message(@target, message)
+    end
   end
 end
