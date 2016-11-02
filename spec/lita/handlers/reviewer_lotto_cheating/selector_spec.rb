@@ -5,12 +5,8 @@ require 'lita/handlers/reviewer_lotto_cheating/error'
 require 'lita/handlers/reviewer_lotto_cheating/selector'
 
 describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
-  let(:selector) do
-    described_class.new(logger: Lita.logger)
-  end
-
-  describe '#call' do
-    subject { selector.call(*arguments) }
+  describe '.call' do
+    subject { described_class.call(*arguments) }
     let (:arguments) { [100] }
 
     context 'when no reviewer candidation' do
@@ -40,7 +36,7 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
     let (:junior2) { User.new('junior2', 1) }
     let (:users) { [ senior1, senior2, junior1, junior2 ] }
 
-    subject { selector.send(:select, users, user_points) }
+    subject { described_class.send(:select, users, user_points) }
 
     context 'with a user has done the least number of reviews' do
       let(:user_points) do
@@ -75,13 +71,9 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
 
     context 'with no reviewer' do
       let (:users) { [] }
-      let(:user_points) do
-        {}
-      end
+      let(:user_points) { {} }
 
-      it 'return []' do
-        expect(subject).to eq []
-      end
+      it { is_expected.to eq [] }
     end
   end
 end
