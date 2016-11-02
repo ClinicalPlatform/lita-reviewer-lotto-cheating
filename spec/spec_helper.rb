@@ -27,7 +27,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, model: true) do
-    stub_const("Lita::REDIS_NAMESPACE", "lita.test")
+    Lita.redis.namespace = 'lita.test'
     keys = Lita.redis.keys("*")
     Lita.redis.del(keys) unless keys.empty?
   end
