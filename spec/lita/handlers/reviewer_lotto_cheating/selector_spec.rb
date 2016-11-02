@@ -30,5 +30,58 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
       end
     end
   end
-end
 
+  describe '#select' do
+    class User < Struct.new(:name, :level); end
+
+    let (:senior1) { User.new('senior1', 2) }
+    let (:senior2) { User.new('senior1', 2) }
+    let (:junior1) { User.new('junior1', 1) }
+    let (:junior2) { User.new('junior2', 1) }
+    let (:users) { [ senior1, senior2, junior1, junior2 ] }
+
+    subject { selector.send(:select, users, user_points) }
+
+    context 'with a user has done the least number of reviews' do
+      let(:user_points) do
+        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 3, 'junior2' => 2 }
+      end
+
+      it 'select its user' do
+        expect(subject).to eq [senior1, junior2]
+      end
+    end
+
+    context 'with multiple users has done the least number of reviews' do
+      let(:user_points) do
+        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 2, 'junior2' => 2 }
+      end
+
+      it 'select randomly between these users' do
+        expect(subject).to eq([senior1, junior1]) | eq([senior1, junior2])
+      end
+    end
+
+    context 'with no senior reviewer' do
+      let (:users) { [ junior1, junior2 ] }
+      let(:user_points) do
+        { 'junior1' => 2, 'junior2' => 3 }
+      end
+
+      it 'return only 1 reviewer' do
+        expect(subject).to eq [junior1]
+      end
+    end
+
+    context 'with no reviewer' do
+      let (:users) { [] }
+      let(:user_points) do
+        {}
+      end
+
+      it 'return []' do
+        expect(subject).to eq []
+      end
+    end
+  end
+end
