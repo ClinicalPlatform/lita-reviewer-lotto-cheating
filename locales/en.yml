@@ -2,7 +2,7 @@ en:
   lita:
     handlers:
       reviewer_lotto_cheating:
-        application_name: 'Lita Reviewer Lotto Cheating'
+        application_name: 'LitaReviewer'
         help:
           reviewer: "Choice 2 reviewers for GITHUB_PR_URL"
           list_user: "List current reviewer candidates"
