@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lita::Handlers::ReviewerLottoCheating::ChatHandler, lita_handler: true do
+describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: true do
   describe 'route' do
     context 'reviewer' do
       context 'with valid argument' do
@@ -45,7 +45,7 @@ describe Lita::Handlers::ReviewerLottoCheating::ChatHandler, lita_handler: true 
         NS::User.add(name: 'test1', level: 1)
         NS::User.add(name: 'test2', level: 2)
 
-        allow_any_instance_of(NS::ChatHandler).to \
+        allow_any_instance_of(NS::ReviewerHandler).to \
           receive(:responders).and_return([
             NS::ChatResponder.new(robot: robot, config: config)
         ])

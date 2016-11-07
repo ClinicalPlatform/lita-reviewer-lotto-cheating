@@ -10,7 +10,7 @@ require_relative '../selector'
 require_relative 'base_handler'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class ChatHandler < BaseHandler
+  class ReviewerHandler < BaseHandler
     namespace 'reviewer_lotto_cheating'
 
     config :github_access_token, type: String, required: true

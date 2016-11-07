@@ -8,7 +8,7 @@ Lita.load_locales Dir[File.expand_path(
 
 require 'lita/handlers/reviewer_lotto_cheating/handler'
 
-Lita::Handlers::ReviewerLottoCheating::ChatHandler.template_root File.expand_path(
+Lita::Handlers::ReviewerLottoCheating::ReviewerHandler.template_root File.expand_path(
   File.join('..', '..', 'templates'),
  __FILE__
 )
