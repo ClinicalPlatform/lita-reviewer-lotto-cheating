@@ -20,11 +20,7 @@ describe Lita::Handlers::ReviewerLottoCheating::Pullrequest, model: true do
     end
 
     context 'when has been assigned' do
-      before do
-        described_class.redis.sadd(
-          NS::Pullrequest::PULLREQUESTS_KEY, pullrequest.id
-        )
-      end
+      before { described_class.redis.sadd('pullrequests', pullrequest.id) }
       it { is_expected.to be_truthy }
     end
   end
@@ -80,8 +76,7 @@ describe Lita::Handlers::ReviewerLottoCheating::Pullrequest, model: true do
 
     it 'fetch pullrequests' do
       expect(subject.map(&:id)).to eq [90730338, 90553639, 90553293, 90544452]
-      expect(subject.first).to be_a \
-        Lita::Handlers::ReviewerLottoCheating::Pullrequest
+      expect(subject.first).to be_a described_class
     end
   end
 end

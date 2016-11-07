@@ -13,9 +13,9 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     before { user.save }
 
     it 'delete user data from redis' do
-      expect(Lita.redis.keys(user.key('*')).size).to be > 0
-      subject
-      expect(Lita.redis.keys(user.key('*'))).to eq []
+      expect { subject }.to change {
+        Lita.redis.keys('users:*').size
+      }.from(be > 0).to(0)
     end
   end
 
@@ -28,7 +28,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
 
     context 'when exists' do
       before do
-        Lita.redis.set(user.key(:hoge), 'fuga')
+        Lita.redis.set('users:test:foo', 'fuga')
       end
       it { is_expected.to be_truthy }
     end
@@ -57,14 +57,14 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
 
     context 'with no value in redis' do
       before do
-        Lita.redis.del(user.key(:level))
+        Lita.redis.del('users:test:level')
       end
       it { is_expected.to eq 0 }
     end
 
     context 'with the value in redis' do
       before do
-        Lita.redis.set(user.key(:level), 3)
+        Lita.redis.set('users:test:level', 3)
       end
       it { is_expected.to eq 3 }
     end
@@ -76,8 +76,8 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     context 'when success' do
       it 'save user data to redis' do
         expect { subject }.to change {
-          [ Lita.redis.get(user.key(:level)),
-            Lita.redis.smembers(user.key(:working_days)), ]
+          [ Lita.redis.get('users:test:level'),
+            Lita.redis.smembers('users:test:working_days'), ]
         }.from([ nil, [] ])
           .to([ '1', %w(1 2 3) ])
       end
@@ -115,14 +115,14 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
 
     context 'with no value in redis' do
       before do
-        Lita.redis.del(user.key(:working_days))
+        Lita.redis.del('users:test:working_days')
       end
       it { is_expected.to eq [] }
     end
 
     context 'with the value in redis' do
       before do
-        Lita.redis.sadd(user.key(:working_days), [1, 2, 3])
+        Lita.redis.sadd('users:test:working_days', [1, 2, 3])
       end
       it { is_expected.to eq [1, 2, 3] }
     end
@@ -137,7 +137,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
 
     context 'with users in redis' do
       before do
-        Lita.redis.sadd(described_class::USERS_KEY, %w(test1 test2 test3))
+        Lita.redis.sadd('users', %w(test1 test2 test3))
       end
       it do
         expect(subject.map(&:name)).to contain_exactly(*%w(test1 test2 test3))
