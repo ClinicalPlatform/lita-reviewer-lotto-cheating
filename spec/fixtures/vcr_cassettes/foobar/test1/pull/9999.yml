@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.github.com/repos/hyone/test1/pulls/9999
+    uri: https://api.github.com/repos/foobar/test1/pulls/9999
     body:
       encoding: US-ASCII
       string: ''

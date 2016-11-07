@@ -56,21 +56,21 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
 
     context 'with non http(s) URL' do
       before do
-        send_command('reviewer ftp://github.com/hyone/test1/pull/3')
+        send_command('reviewer ftp://github.com/foobar/test1/pull/3')
       end
       it do
         is_expected.to eq \
-          "Error: 'ftp://github.com/hyone/test1/pull/3' is not github pullrequest URL."
+          "Error: 'ftp://github.com/foobar/test1/pull/3' is not github pullrequest URL."
       end
     end
 
     context 'with non pullrequest URL' do
       before do
-        send_command('reviewer https://github.com/hyone/test1/pul')
+        send_command('reviewer https://github.com/foobar/test1/pul')
       end
       it do
         is_expected.to eq \
-          "Error: 'https://github.com/hyone/test1/pul' is not github pullrequest URL."
+          "Error: 'https://github.com/foobar/test1/pul' is not github pullrequest URL."
       end
     end
 
@@ -78,8 +78,8 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
       include_context 'environment for reviewer command'
 
       before do
-        VCR.use_cassette('hyone/test1/pull/9999') do
-          send_command('reviewer https://github.com/hyone/test1/pull/9999')
+        VCR.use_cassette('foobar/test1/pull/9999') do
+          send_command('reviewer https://github.com/foobar/test1/pull/9999')
         end
       end
 
@@ -90,23 +90,23 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
       include_context 'environment for reviewer command'
 
       before do
-        VCR.use_cassette('hyone/test1/pull/3') do
-          send_command('reviewer https://github.com/hyone/test1/pull/3')
+        VCR.use_cassette('foobar/test1/pull/3') do
+          send_command('reviewer https://github.com/foobar/test1/pull/3')
         end
       end
 
       it do
         is_expected.to eq \
-          'test2, test1 are assigned as the reviewers for https://github.com/hyone/test1/pull/3!!'
+          'test2, test1 are assigned as the reviewers for https://github.com/foobar/test1/pull/3!!'
       end
 
       context 'and send same reviewer command again' do
         before do
-          VCR.use_cassette('hyone/test1/pull/3') do
-            send_command('reviewer https://github.com/hyone/test1/pull/3')
+          VCR.use_cassette('foobar/test1/pull/3') do
+            send_command('reviewer https://github.com/foobar/test1/pull/3')
           end
         end
-        it { is_expected.to eq 'https://github.com/hyone/test1/pull/3 has already assigned to reviewers.' }
+        it { is_expected.to eq 'https://github.com/foobar/test1/pull/3 has already assigned to reviewers.' }
       end
     end
   end
