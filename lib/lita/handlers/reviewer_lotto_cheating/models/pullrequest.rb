@@ -9,7 +9,7 @@ module Lita::Handlers::ReviewerLottoCheating
     extend Forwardable
 
     attr_reader :redis
-    def_delegators :@pr, :html_url, :number
+    def_delegators :@pr, :html_url, :number, :id
 
     PULLREQUESTS_KEY         = 'pullrequests'
     ORDERED_PULLREQUESTS_KEY = 'pullrequests_ordered'

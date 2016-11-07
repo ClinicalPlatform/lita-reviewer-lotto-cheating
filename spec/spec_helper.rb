@@ -19,8 +19,7 @@ RSpec.configure do |config|
     require 'lita/handlers/reviewer_lotto_cheating/models/user'
     require 'lita/handlers/reviewer_lotto_cheating/model'
 
-    lita_config = Lita.config.handlers.reviewer_lotto_cheating
-    github      = NS::Github.new(access_token: lita_config.github_access_token)
+    github = NS::Github.new(ENV['GITHUB_ACCESS_TOKEN'])
     NS::Model.list.each do |model_class|
       model_class.init(redis: Lita.redis, github: github) if model_class.respond_to?(:init)
     end
