@@ -27,12 +27,10 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
   end
 
   describe '#select' do
-    class User < Struct.new(:name, :level); end
-
-    let (:senior1) { User.new('senior1', 2) }
-    let (:senior2) { User.new('senior1', 2) }
-    let (:junior1) { User.new('junior1', 1) }
-    let (:junior2) { User.new('junior2', 1) }
+    let (:senior1) { UserMock.new('senior1', 2) }
+    let (:senior2) { UserMock.new('senior1', 2) }
+    let (:junior1) { UserMock.new('junior1', 1) }
+    let (:junior2) { UserMock.new('junior2', 1) }
     let (:users) { [ senior1, senior2, junior1, junior2 ] }
 
     subject { described_class.send(:select, users, user_points) }

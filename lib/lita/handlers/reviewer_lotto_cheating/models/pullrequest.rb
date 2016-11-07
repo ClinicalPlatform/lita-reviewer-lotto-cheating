@@ -23,6 +23,10 @@ module Lita::Handlers::ReviewerLottoCheating
       redis.sismember(PULLREQUESTS_KEY, @pr.id)
     end
 
+    def key
+      "#{PULLREQUESTS_KEY}:#{path}"
+    end
+
     def save(reviewers)
       # save for detection of whether or not it was reviewd
       redis.sadd(PULLREQUESTS_KEY, @pr.id)
@@ -42,12 +46,6 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def path
       URI.parse(@pr.html_url).path
-    end
-
-    private
-
-    def key
-      "#{PULLREQUESTS_KEY}:#{path}"
     end
 
     class << self

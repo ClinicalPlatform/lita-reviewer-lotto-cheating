@@ -31,3 +31,5 @@ RSpec.configure do |config|
     Lita.redis.del(keys) unless keys.empty?
   end
 end
+
+class UserMock < Struct.new(:name, :level); end
