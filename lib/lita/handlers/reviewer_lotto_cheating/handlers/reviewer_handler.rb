@@ -22,8 +22,14 @@ module Lita::Handlers::ReviewerLottoCheating
     # room(channel) or user to which this handler sends messages
     config :chat_target, type: Hash, default: { room: '#general' }
 
-    on :connected, :assign_reviewers_to_all
+    # on :connected, :assign_reviewers_to_all
 
+    route /reviewer\s+all\b/,
+      :assign_reviewers_to_all,
+      command: true,
+      help: {
+        'reviewer GITHUB_PR_URL' => t('help.reviewer')
+      }
     route /reviewer\s+(#{ URI.regexp })\b/,
       :assign_reviewers_from_chat,
       command: true,
@@ -31,7 +37,18 @@ module Lita::Handlers::ReviewerLottoCheating
         'reviewer GITHUB_PR_URL' => t('help.reviewer')
       }
 
-    def assign_reviewers_to_all(_payload)
+    http.get '/assign_reviewer/all', :assign_reviewers_to_all_from_http
+    http.get '/assign_reviewer/:path', :assign_reviewers_from_http
+
+    def assign_reviewers_to_all_from_http(_request, _response)
+      assign_reviewers_to_all
+    end
+
+    def assign_reviewrs_from_http(request, response)
+      assign_reviewers_from_url(response.matches[0][0])
+    end
+
+    def assign_reviewers_to_all(_payload = nil)
       return logger.info(
         "'config.handlers.reviewer.repositories' is not set, skip."
       ) unless config.repositories
