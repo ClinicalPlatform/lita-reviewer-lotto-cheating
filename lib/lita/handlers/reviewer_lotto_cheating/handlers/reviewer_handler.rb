@@ -25,7 +25,7 @@ module Lita::Handlers::ReviewerLottoCheating
     # on :connected, :assign_reviewers_to_all
 
     route /reviewer\s+all\b/,
-      :assign_reviewers_to_all,
+      :assign_reviewers_to_all_from_chat,
       command: true,
       help: {
         'reviewer GITHUB_PR_URL' => t('help.reviewer')
@@ -37,18 +37,30 @@ module Lita::Handlers::ReviewerLottoCheating
         'reviewer GITHUB_PR_URL' => t('help.reviewer')
       }
 
+    # ex: http://localhost:8080/assign_reviewer/all
     http.get '/assign_reviewer/all', :assign_reviewers_to_all_from_http
-    http.get '/assign_reviewer/:path', :assign_reviewers_from_http
+
+    # ex: http://localhost:8080/assign_reviewer/foobar/test1/pull/3
+    http.get '/assign_reviewer/*path', :assign_reviewers_from_http
 
     def assign_reviewers_to_all_from_http(_request, _response)
       assign_reviewers_to_all
     end
 
-    def assign_reviewrs_from_http(request, response)
+    def assign_reviewers_from_http(request, _response)
+      path = request.env['router.params'][:path].join('/')
+      assign_reviewers_from_path(path)
+    end
+
+    def assign_reviewers_to_all_from_chat(_response)
+      assign_reviewers_to_all
+    end
+
+    def assign_reviewers_from_chat(response)
       assign_reviewers_from_url(response.matches[0][0])
     end
 
-    def assign_reviewers_to_all(_payload = nil)
+    def assign_reviewers_to_all
       return logger.info(
         "'config.handlers.reviewer.repositories' is not set, skip."
       ) unless config.repositories
@@ -64,8 +76,9 @@ module Lita::Handlers::ReviewerLottoCheating
       prs.each do |pr| assign_reviewers(pr) end
     end
 
-    def assign_reviewers_from_chat(response)
-      assign_reviewers_from_url(response.matches[0][0])
+    def assign_reviewers_from_path(path)
+      url = "https://github.com/#{path}"
+      assign_reviewers_from_url(url)
     end
 
     def assign_reviewers_from_url(url)
