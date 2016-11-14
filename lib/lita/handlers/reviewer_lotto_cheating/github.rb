@@ -14,7 +14,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def pullrequests(repositories)
-      repositories = repositories.is_a?(String) ? [repositories] : repositories
+      repositories = Array(repositories)
       repositories.map do |repository|
         repo_name =
           case repository
