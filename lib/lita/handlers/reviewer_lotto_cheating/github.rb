@@ -13,10 +13,6 @@ module Lita::Handlers::ReviewerLottoCheating
       @client = Octokit::Client.new(access_token: access_token)
     end
 
-    def write_comment(pr, text)
-      @client.add_comment(pr.repo, pr.number, text)
-    end
-
     def pullrequests(repositories)
       repositories = repositories.is_a?(String) ? [repositories] : repositories
       repositories.map do |repository|
