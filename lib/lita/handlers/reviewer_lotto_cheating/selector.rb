@@ -29,7 +29,7 @@ module Lita::Handlers::ReviewerLottoCheating
           end
           sorted.first
         end
-        .reject(&:nil?)
+        .compact
       end
     end
   end
