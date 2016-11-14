@@ -5,7 +5,7 @@ require 'reviewer_lotto_cheating/models/user'
 require 'reviewer_lotto_cheating/handlers/base_handler.rb'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class AdminHandler < BaseHandler
+  class UserHandler < BaseHandler
     namespace 'reviewer_lotto_cheating'
 
     route /reviewer\s+list\s*/, :list_user,
