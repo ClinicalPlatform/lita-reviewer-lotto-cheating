@@ -90,9 +90,9 @@ Options:
 - `-w` , `--working_days` : specify working days by comma separated numbers (0-6 Sunday is 0)
   ( e.g. `--working_days 1,2,3,4,5` )
 
-#### lita reviewer add
+#### lita reviewer update
 
-    reviewer update USERNAME [-l | --level NUMBER] [-w | --working_days COMMA_SEPARATED_NUMBERS]
+    lita reviewer update USERNAME [-l | --level NUMBER] [-w | --working_days COMMA_SEPARATED_NUMBERS]
 
 Update `USERNAME` properties
 
@@ -105,6 +105,6 @@ Options:
 
 #### lita reviewer delete
 
-    lita reviewer delete
+    lita reviewer delete USERNAME
 
 Delete `USERNAME` from reviewer candidates
