@@ -1,3 +1,6 @@
+lib = File.expand_path('../lib/lita/handlers', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 Gem::Specification.new do |spec|
   spec.name          = 'lita-reviewer-lotto-cheating'
   spec.version       = '0.1.0'

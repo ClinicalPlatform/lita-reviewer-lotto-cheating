@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'models/pullrequest'
-require_relative 'models/user'
-require_relative 'error'
+require 'reviewer_lotto_cheating/models/pullrequest'
+require 'reviewer_lotto_cheating/models/user'
+require 'reviewer_lotto_cheating/error'
 
 module Lita::Handlers::ReviewerLottoCheating
   class Selector

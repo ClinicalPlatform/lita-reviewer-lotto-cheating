@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-require 'pry'
 require 'uri'
-require_relative '../error'
-require_relative '../models/pullrequest'
-require_relative '../models/user'
-require_relative '../responder'
-require_relative '../selector'
-require_relative 'base_handler'
+require 'reviewer_lotto_cheating/error'
+require 'reviewer_lotto_cheating/models/pullrequest'
+require 'reviewer_lotto_cheating/models/user'
+require 'reviewer_lotto_cheating/responder'
+require 'reviewer_lotto_cheating/selector'
+require 'reviewer_lotto_cheating/handlers/base_handler'
 
 module Lita::Handlers::ReviewerLottoCheating
   class ReviewerHandler < BaseHandler

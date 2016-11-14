@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'forwardable'
-require_relative '../error'
-require_relative 'base_model'
+require 'reviewer_lotto_cheating/error'
+require 'reviewer_lotto_cheating/models/base_model'
 
 module Lita::Handlers::ReviewerLottoCheating
   class Pullrequest < BaseModel

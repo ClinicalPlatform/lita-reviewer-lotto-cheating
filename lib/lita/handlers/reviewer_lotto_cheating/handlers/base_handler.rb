@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../model'
-require_relative '../github'
+require 'reviewer_lotto_cheating/model'
+require 'reviewer_lotto_cheating/github'
 
 module Lita::Handlers::ReviewerLottoCheating
   class BaseHandler < Lita::Handler

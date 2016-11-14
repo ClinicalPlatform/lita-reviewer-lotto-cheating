@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'lita-keyword-arguments'
-require_relative '../models/user'
-require_relative 'base_handler.rb'
+require 'reviewer_lotto_cheating/models/user'
+require 'reviewer_lotto_cheating/handlers/base_handler.rb'
 
 module Lita::Handlers::ReviewerLottoCheating
   class AdminHandler < BaseHandler

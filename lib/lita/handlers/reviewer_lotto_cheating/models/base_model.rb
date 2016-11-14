@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../model'
+require 'reviewer_lotto_cheating/model'
 
 module Lita::Handlers::ReviewerLottoCheating
   class BaseModel

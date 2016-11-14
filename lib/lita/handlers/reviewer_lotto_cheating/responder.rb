@@ -8,8 +8,8 @@ module Lita::Handlers::ReviewerLottoCheating
       end
     end
 
-    require_relative 'responders/chat_responder'
-    require_relative 'responders/github_comment_responder'
-    require_relative 'responders/github_status_check_responder'
+    require 'reviewer_lotto_cheating/responders/chat_responder'
+    require 'reviewer_lotto_cheating/responders/github_comment_responder'
+    require 'reviewer_lotto_cheating/responders/github_status_check_responder'
   end
 end

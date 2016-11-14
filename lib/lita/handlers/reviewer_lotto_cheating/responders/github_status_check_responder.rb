@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'base_responder'
+require 'reviewer_lotto_cheating/responders/base_responder'
 
 module Lita::Handlers::ReviewerLottoCheating
   # display in status check

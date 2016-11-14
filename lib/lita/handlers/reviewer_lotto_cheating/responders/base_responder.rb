@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../common/translatable'
-require_relative '../responder'
+require 'reviewer_lotto_cheating/common/translatable'
+require 'reviewer_lotto_cheating/responder'
 
 module Lita::Handlers::ReviewerLottoCheating
   class BaseResponder

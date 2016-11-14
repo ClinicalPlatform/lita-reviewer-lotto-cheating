@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'lita'
-require_relative 'base_responder'
+require 'reviewer_lotto_cheating/responders/base_responder'
 
 module Lita::Handlers::ReviewerLottoCheating
   class ChatResponder < BaseResponder
