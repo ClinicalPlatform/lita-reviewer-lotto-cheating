@@ -51,7 +51,7 @@ module Lita::Handlers::ReviewerLottoCheating
     class << self
       attr_accessor :redis, :github
 
-      def init(redis:, github:, **kwargs)
+      def init(redis:, github:)
         @redis  = redis
         @github = github
       end
