@@ -11,14 +11,14 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
 
     context 'when no reviewer candidation' do
       it 'raise Error' do
-        expect { subject }.to raise_error(NS::Error)
+        expect { subject }.to raise_error(APP::Error)
       end
     end
 
     context 'when reviewer candidations exist' do
       before do
-        NS::User.add_or_update(name: 'test1', level: 1, working_days: (1..7).to_a)
-        NS::User.add_or_update(name: 'test2', level: 2, working_days: (1..7).to_a)
+        APP::User.add_or_update(name: 'test1', level: 1, working_days: (1..7).to_a)
+        APP::User.add_or_update(name: 'test2', level: 2, working_days: (1..7).to_a)
       end
       it 'return 2 reviwers' do
         expect(subject.map(&:name)).to contain_exactly('test1', 'test2')

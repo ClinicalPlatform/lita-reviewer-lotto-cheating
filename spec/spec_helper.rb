@@ -12,15 +12,15 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
-  NS = Lita::Handlers::ReviewerLottoCheating
+  APP = Lita::Handlers::ReviewerLottoCheating
 
   config.before(:all, model: true) do
     require 'lita/handlers/reviewer_lotto_cheating/models/pullrequest'
     require 'lita/handlers/reviewer_lotto_cheating/models/user'
     require 'lita/handlers/reviewer_lotto_cheating/model'
 
-    github = NS::Github.new(ENV['GITHUB_ACCESS_TOKEN'])
-    NS::Model.list.each do |model_class|
+    github = APP::Github.new(ENV['GITHUB_ACCESS_TOKEN'])
+    APP::Model.list.each do |model_class|
       model_class.init(redis: Lita.redis, github: github) if model_class.respond_to?(:init)
     end
   end

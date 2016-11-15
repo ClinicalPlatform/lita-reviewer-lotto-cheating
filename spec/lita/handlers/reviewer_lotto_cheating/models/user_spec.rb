@@ -129,7 +129,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
 
   describe '.add_or_update' do
     let(:args) { { name: 'test', level: 5, working_days: [1] } }
-    subject { NS::User.add_or_update(args) }
+    subject { APP::User.add_or_update(args) }
 
     context 'when user exists' do
       before { user.save }
@@ -137,10 +137,10 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
       it 'update the user info' do
         expect { subject }.to \
           change {
-            NS::User.new(name: 'test').level
+            APP::User.new(name: 'test').level
           }.from(1).to(5).and \
           change {
-            NS::User.new(name: 'test').working_days
+            APP::User.new(name: 'test').working_days
           }.from([1, 2, 3]).to([1])
       end
     end
@@ -150,8 +150,8 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
         expect(user.exist?).to be_falsy
         subject
         expect(user.exist?).to be_truthy
-        expect(NS::User.new(name: 'test').level).to eq 5
-        expect(NS::User.new(name: 'test').working_days).to eq [1]
+        expect(APP::User.new(name: 'test').level).to eq 5
+        expect(APP::User.new(name: 'test').working_days).to eq [1]
       end
     end
   end
@@ -188,7 +188,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     end
 
     context 'when user does not exists' do
-      let(:user) { NS::User.new(name: 'no_such_user') }
+      let(:user) { APP::User.new(name: 'no_such_user') }
       it { is_expected.to be_nil }
     end
   end
