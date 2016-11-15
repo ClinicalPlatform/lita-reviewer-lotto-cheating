@@ -79,4 +79,45 @@ describe Lita::Handlers::ReviewerLottoCheating::Pullrequest, model: true do
       expect(subject.first).to be_a described_class
     end
   end
+
+  describe '.calc_review_counts' do
+    subject { described_class.calc_review_counts(duration: 365 * 24 * 60 * 60) }
+
+    context 'with some reviewed pullrequests' do
+      before do
+        redis = described_class.redis
+
+        keys = [
+          'pullrequests:/foobar/test1/pull/1',
+          'pullrequests:/foobar/test1/pull/2',
+          'pullrequests:/foobar/test1/pull/3',
+          'pullrequests:/foobar/test1/pull/4',
+        ]
+        redis.sadd(keys[0], ['user1', 'user2'])
+        redis.sadd(keys[1], ['user1', 'user3'])
+        redis.sadd(keys[2], ['user1', 'user4'])
+        redis.sadd(keys[3], ['user2', 'user4'])
+
+        redis.zadd('pullrequests_ordered', Time.now.to_i, keys[0])
+        redis.zadd('pullrequests_ordered', Time.now.to_i, keys[1])
+        redis.zadd('pullrequests_ordered', Time.now.to_i, keys[2])
+        redis.zadd('pullrequests_ordered', Time.now.to_i, keys[3])
+      end
+
+      it 'return hash of each user reviewed count' do
+        expect(subject).to eq({
+          'user2' => 2,
+          'user1' => 3,
+          'user3' => 1,
+          'user4' => 2,
+        })
+      end
+    end
+
+    context 'with no reviewed pullrequest' do
+      it 'return empty hash' do
+        expect(subject).to eq({})
+      end
+    end
+  end
 end
