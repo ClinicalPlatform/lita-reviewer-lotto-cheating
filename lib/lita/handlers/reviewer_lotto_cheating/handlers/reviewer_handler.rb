@@ -21,7 +21,7 @@ module Lita::Handlers::ReviewerLottoCheating
     # room(channel) or user to which this handler sends messages
     config :chat_target, type: Hash, default: { room: '#general' }
 
-    # on :connected, :assign_reviewers_to_all
+    on :connected, :validate_repositories
 
     route /reviewer\s+all\b/,
       :assign_reviewers_to_all_from_chat,
@@ -42,6 +42,13 @@ module Lita::Handlers::ReviewerLottoCheating
     # ex: http://localhost:8080/assign_reviewer/foobar/test1/pull/3
     http.get '/assign_reviewer/*path', :assign_reviewers_from_http
 
+    def validate_repositories(_payload)
+      unless config.repositories.is_a?(Array) and config.repositories.present?
+        logger.fatal("'config.handlers.reviewer_lotto_cheating.repositories' must be Array and not be empty, abort.")
+        abort
+      end
+    end
+
     def assign_reviewers_to_all_from_http(_request, _response)
       assign_reviewers_to_all
     end
@@ -60,10 +67,6 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def assign_reviewers_to_all
-      return logger.info(
-        "'config.handlers.reviewer.repositories' is not set, skip."
-      ) unless config.repositories
-
       begin
         prs = Pullrequest.list(config.repositories)
       rescue Octokit::Error => e
