@@ -81,7 +81,7 @@ module Lita::Handlers::ReviewerLottoCheating
       end
 
       # calculate count of reviewed for each user
-      def review_counts(duration:)
+      def calc_review_counts(duration:)
         now   = Time.now.to_i
         start = now - duration
 
