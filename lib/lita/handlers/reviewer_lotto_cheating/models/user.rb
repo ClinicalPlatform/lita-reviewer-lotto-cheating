@@ -13,8 +13,8 @@ module Lita::Handlers::ReviewerLottoCheating
     def initialize(name:, level: nil, working_days: nil, options: {})
       @redis = options[:redis] || self.class.redis
       @name  = name
-      @level = level
-      @working_days = working_days
+      @level = level if level
+      @working_days = working_days if working_days
     end
 
     def delete
@@ -34,7 +34,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def level
-      @level ||= redis.get(key(:level)).to_i
+      @level ||= (redis.get(key(:level)).to_i || 0)
     end
 
     def level=(level)
@@ -42,11 +42,12 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def save
-      redis.set(key(:level), @level)
-      redis.del(key(:working_days))
-      redis.sadd(key(:working_days), @working_days)
-
-      redis.sadd(USERS_KEY, @name)
+      redis.set(key(:level), level)
+      unless working_days.empty?
+        redis.del(key(:working_days))
+        redis.sadd(key(:working_days), working_days)
+      end
+      redis.sadd(USERS_KEY, name)
       true
     end
 
@@ -80,9 +81,9 @@ module Lita::Handlers::ReviewerLottoCheating
         @redis = redis
       end
 
-      def add(name:, level: 0, working_days: (1..5).to_a)
-        user = new(name: name, level: level, working_days: working_days)
-        user.save
+      def add_or_update(name:, level: nil, working_days: nil)
+        user = new(name: name)
+        user.update(level: level, working_days: working_days)
       end
 
       def find(name)

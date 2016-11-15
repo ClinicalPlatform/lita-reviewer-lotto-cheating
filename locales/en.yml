@@ -6,17 +6,16 @@ en:
         help:
           reviewer: "Choice 2 reviewers for GITHUB_PR_URL"
           list_user: "List current reviewer candidates"
-          add_user: "Add <USERNAME> to reviewer candidates"
+          add_user: "Add <USERNAME> to reviewer candidates ( or update <USERNAME> if already exists )"
           update_user: "Update <USERNAME> properties"
           delete_user: "Delete <USERNAME> from reviewer candidates"
         error:
           invalid_url: "\"%{url}\" is not github pullrequest URL."
-          invalid_argument: "invalid argument. see 'help'"
           comment_failure: "Failed to write comment: %{text}"
           user_not_found: "User not found: %{name}"
           user_already_exists: "User already exists: %{name}"
         message:
-          added: "%{name} is successfully added."
+          add_or_updated: "%{name} is successfully added (updated)."
           already_assigned: "%{url} has been already assigned reviewers."
           assigned_reviewers:
             chat: "%{reviewers} are assigned as the reviewers for %{url}!!"

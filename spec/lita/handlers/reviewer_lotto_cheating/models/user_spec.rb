@@ -105,7 +105,6 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     end
   end
 
-
   describe '#working_days' do
     subject { user.working_days }
 
@@ -127,6 +126,36 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
       it { is_expected.to eq [1, 2, 3] }
     end
   end
+
+  describe '.add_or_update' do
+    let(:args) { { name: 'test', level: 5, working_days: [1] } }
+    subject { NS::User.add_or_update(args) }
+
+    context 'when user exists' do
+      before { user.save }
+
+      it 'update the user info' do
+        expect { subject }.to \
+          change {
+            NS::User.new(name: 'test').level
+          }.from(1).to(5).and \
+          change {
+            NS::User.new(name: 'test').working_days
+          }.from([1, 2, 3]).to([1])
+      end
+    end
+
+    context 'when user does not exist' do
+      it 'create new user' do
+        expect(user.exist?).to be_falsy
+        subject
+        expect(user.exist?).to be_truthy
+        expect(NS::User.new(name: 'test').level).to eq 5
+        expect(NS::User.new(name: 'test').working_days).to eq [1]
+      end
+    end
+  end
+
 
   describe '.list' do
     subject { described_class.list }

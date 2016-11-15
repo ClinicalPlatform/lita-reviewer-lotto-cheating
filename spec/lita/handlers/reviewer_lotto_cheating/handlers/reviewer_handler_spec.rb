@@ -42,8 +42,8 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
       let(:config) { Struct.new(:chat_target).new({ room: '#general' }) }
 
       before do
-        NS::User.add(name: 'test1', level: 1)
-        NS::User.add(name: 'test2', level: 2)
+        NS::User.add_or_update(name: 'test1', level: 1, working_days: (0..5).to_a)
+        NS::User.add_or_update(name: 'test2', level: 2, working_days: (0..5).to_a)
 
         allow_any_instance_of(NS::ReviewerHandler).to \
           receive(:responders).and_return([

@@ -27,19 +27,6 @@ module Lita::Handlers::ReviewerLottoCheating
               => t('help.add_user'),
           }
 
-    route /reviewer\s+update\s+(\S+)/, :update_user,
-          command: true,
-          kwargs: {
-            level: { short: 'l' },
-            working_days: { short: 'w' }
-          },
-          help: {
-            'reviewer update USERNAME ' \
-            '[-l | --level NUMBER] ' \
-            '[-w | --working_days COMMA_SEPARATED_NUMBERS (0-6 Sunday is 0)]' \
-              => t('help.update_user')
-          }
-
     route /reviewer\s+delete\s+(\S+)/, :delete_user,
       command: true,
       help: {
@@ -60,16 +47,11 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def add_user(response)
       name = response.matches[0][0]
-      user = User.find(name)
-      if !user
-        kwargs = build_arguments(
-          response.extensions[:kwargs].merge(name: name)
-        )
-        User.add(kwargs)
-        response.reply(t('message.added', name: name))
-      else
-        response.reply(t('error.user_already_exists', name: name))
-      end
+      kwargs = build_arguments(
+        response.extensions[:kwargs].merge(name: name)
+      )
+      User.add_or_update(kwargs)
+      response.reply(t('message.add_or_updated', name: name))
     end
 
     def delete_user(response)
@@ -78,21 +60,6 @@ module Lita::Handlers::ReviewerLottoCheating
       if user
         user.delete
         response.reply(t('message.deleted', name: name))
-      else
-        response.reply(t('error.user_not_found', name: name))
-      end
-    end
-
-    def update_user(response)
-      name   = response.matches[0][0]
-      user   = User.find(name)
-      kwargs = build_arguments(response.extensions[:kwargs])
-      case 
-      when kwargs.empty?
-        response.reply(t('error.invalid_argument'))
-      when user
-        user.update(kwargs)
-        response.reply(t('message.updated', name: name))
       else
         response.reply(t('error.user_not_found', name: name))
       end
