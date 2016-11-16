@@ -6,10 +6,10 @@ require 'reviewer_lotto_cheating/models/pullrequest'
 require 'reviewer_lotto_cheating/models/user'
 require 'reviewer_lotto_cheating/responder'
 require 'reviewer_lotto_cheating/selector'
-require 'reviewer_lotto_cheating/handlers/base_handler'
+require 'reviewer_lotto_cheating/handler'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class ReviewerHandler < BaseHandler
+  class ReviewerHandler < Handler
     namespace 'reviewer_lotto_cheating'
 
     config :github_access_token, type: String, required: true
