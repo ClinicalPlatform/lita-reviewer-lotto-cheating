@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'lita'
-require 'reviewer_lotto_cheating/responders/base_responder'
+require 'reviewer_lotto_cheating/responder'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class ChatResponder < BaseResponder
+  class ChatResponder < Responder
     def initialize(robot:, config:, **kwargs)
       @robot  = robot
       @config = config

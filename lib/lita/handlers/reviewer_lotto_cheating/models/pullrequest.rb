@@ -2,10 +2,10 @@
 
 require 'forwardable'
 require 'reviewer_lotto_cheating/error'
-require 'reviewer_lotto_cheating/models/base_model'
+require 'reviewer_lotto_cheating/model'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class Pullrequest < BaseModel
+  class Pullrequest < Model
     extend Forwardable
 
     attr_reader :redis

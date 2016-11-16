@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'reviewer_lotto_cheating/responders/base_responder'
+require 'reviewer_lotto_cheating/responder'
 
 module Lita::Handlers::ReviewerLottoCheating
   # display in status check
-  class GithubStatusCheckResponder < BaseResponder
+  class GithubStatusCheckResponder < Responder
     def initialize(github:, **kwargs)
       @github = github
     end

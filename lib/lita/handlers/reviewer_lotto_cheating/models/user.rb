@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/object/blank'
-require 'reviewer_lotto_cheating/models/base_model'
+require 'reviewer_lotto_cheating/model'
 
 module Lita::Handlers::ReviewerLottoCheating
-  class User < BaseModel
+  class User < Model
     USERS_KEY = 'users'
 
     attr_accessor :name

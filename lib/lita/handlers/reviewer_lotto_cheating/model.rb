@@ -1,9 +1,11 @@
+require 'active_support/descendants_tracker'
+
 module Lita::Handlers::ReviewerLottoCheating
   class Model
+    extend ActiveSupport::DescendantsTracker
+
     class << self
-      def list
-        @models ||= []
-      end
+      alias :list :descendants
     end
   end
 end
