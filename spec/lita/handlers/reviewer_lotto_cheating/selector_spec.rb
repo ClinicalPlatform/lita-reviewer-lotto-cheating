@@ -27,31 +27,53 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
   end
 
   describe '#select' do
-    let (:senior1) { UserMock.new('senior1', 2) }
-    let (:senior2) { UserMock.new('senior1', 2) }
-    let (:junior1) { UserMock.new('junior1', 1) }
-    let (:junior2) { UserMock.new('junior2', 1) }
+    let (:senior1) { UserMock.new('senior1', 2, [1, 2, 3, 4, 5]) }
+    let (:senior2) { UserMock.new('senior2', 2, [1, 2, 3, 4 ,5]) }
+    let (:junior1) { UserMock.new('junior1', 1, [1, 2, 3, 4, 5]) }
+    let (:junior2) { UserMock.new('junior2', 1, [1, 2, 3, 4, 5]) }
     let (:users) { [ senior1, senior2, junior1, junior2 ] }
 
     subject { described_class.send(:select, users, user_points) }
 
-    context 'with a user has done the least number of reviews' do
-      let(:user_points) do
-        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 3, 'junior2' => 2 }
+    # ignore randomness
+    before do
+      allow(described_class).to receive(:rand).and_return(0)
+    end
+
+    context 'when all users have same working_days' do
+      context 'with a user of the least reviewd count' do
+        let(:user_points) do
+          { 'senior1' => 2, 'senior2' => 5, 'junior1' => 3, 'junior2' => 2 }
+        end
+
+        it 'select its user' do
+          expect(subject).to eq [senior1, junior2]
+        end
       end
 
-      it 'select its user' do
-        expect(subject).to eq [senior1, junior2]
+      context 'with multiple users of the same least reviewed count' do
+        let(:user_points) do
+          { 'senior1' => 2, 'senior2' => 5, 'junior1' => 2, 'junior2' => 2 }
+        end
+
+        it 'select the either of the users' do
+          expect(subject).to eq([senior1, junior1]) | eq([senior1, junior2])
+        end
       end
     end
 
-    context 'with multiple users has done the least number of reviews' do
+    context 'when some users have different working_days' do
+      let (:senior_parttime) { UserMock.new('senior_parttime', 2, [1, 2, 3]) }
+      let (:junior_parttime) { UserMock.new('junior_parttime', 1, [1, 2]) }
+      let (:users) { [ senior1, senior2, senior_parttime, junior1, junior2, junior_parttime ] }
+
       let(:user_points) do
-        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 2, 'junior2' => 2 }
+        { 'senior1' => 4, 'senior2' => 5, 'senior_parttime' => 3,
+          'junior1' => 6, 'junior2' => 6, 'junior_parttime' => 2 }
       end
 
-      it 'select randomly between these users' do
-        expect(subject).to eq([senior1, junior1]) | eq([senior1, junior2])
+      it 'select reviewers by cosidering working_days in a week' do
+        expect(subject).to eq [senior1, junior_parttime]
       end
     end
 

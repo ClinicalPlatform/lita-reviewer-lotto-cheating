@@ -32,4 +32,4 @@ RSpec.configure do |config|
   end
 end
 
-class UserMock < Struct.new(:name, :level); end
+class UserMock < Struct.new(:name, :level, :working_days); end
