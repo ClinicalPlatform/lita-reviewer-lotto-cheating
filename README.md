@@ -88,10 +88,20 @@ Add `USERNAME` to reviewer candidates
 
 Options:
 
-- `-l` , `--level` : specify reviewer level
-  ( e.g. `--level 3` )
-- `-w` , `--working_days` : specify working days by comma separated numbers (0-6 Sunday is 0)
-  ( e.g. `--working_days 1,2,3,4,5` )
+- `-l` , `--level` ( e.g. `--level 2` )
+
+  specify reviewer level, which is used to divide the user into junior reviewer group and senior reviewer group.
+
+  - a user whose level is greater than or equal to 2 is senior reviewer.
+  - a user whose level is less than 2 is junior reviewer.
+
+  one user from each group is selected as a reviewer.
+
+- `-w` , `--working_days` ( e.g. `--working_days 1,2,3,4,5` )
+
+  specify working days by comma separated numbers (0-6 Sunday is 0)
+  working days is used to pick up reviewer candidates.
+  reviewers are selected only from users that today is their working day
 
 #### lita reviewer update
 
