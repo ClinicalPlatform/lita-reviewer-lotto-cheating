@@ -16,9 +16,9 @@ gem "lita-reviewer-lotto-cheating"
 
 generate access token on github form [here](https://github.com/settings/tokens/new) with following scopes:
 
-- repo
-  - repo:status
-  - public_repo
+- [ ] repo (check it if you want also to access private repositories)
+  - [x] repo:status
+  - [x] public_repo
 
 ## Configuration
 
