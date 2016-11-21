@@ -36,7 +36,7 @@ Lita.configure do |config|
   # it can also be specified by using `ActiveSupport::Duration`.
   # config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 1.month
 
-  # repotistories from which we get pullrequests
+  # repotistories from which we get pullrequests for selecting reviewers
   config.handlers.reviewer_lotto_cheating.repositories = [
     # fetch only open pullrequests by tagged with 'レビュアー募集中' from 'foo/repo1'
     {

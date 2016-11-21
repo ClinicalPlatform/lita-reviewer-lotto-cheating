@@ -15,8 +15,9 @@ module Lita::Handlers::ReviewerLottoCheating
     namespace 'reviewer_lotto_cheating'
 
     config :github_access_token, type: String, required: true
-    # repositories to review
-    config :repositories, type: [Object], required: true
+
+    # repotistories from which we get pullrequests for selecting reviewers
+    config :repositories, type: Object, required: true
 
     # duration time (second) from now, during which we calculate review count
     # of each user for selecting reviewers
