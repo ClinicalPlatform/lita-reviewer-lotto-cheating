@@ -27,7 +27,7 @@ module Lita::Handlers::ReviewerLottoCheating
            type: [Fixnum, ActiveSupport::Duration],
            default: 30 * 24 * 60 * 60
 
-    # room(channel) or user to which this handler sends messages
+    # room (channel) or user to which this handler sends messages
     config :chat_target, type: Hash, default: { room: '#general' }
 
     on :connected, :validate_repositories
