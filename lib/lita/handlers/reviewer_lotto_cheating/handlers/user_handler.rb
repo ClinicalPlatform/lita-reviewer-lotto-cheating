@@ -35,7 +35,7 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def list_user(response)
       users = User.list
-      width = users.inject(0) { |w, u| w > u.name.length ? w : u.name.length }
+      width = users.map { |user| user.name.length }.max
       text  = users.map do |u|
         sprintf("- %-#{width}s  level:%2d  working_days: %s",
                 u.name, u.level,
