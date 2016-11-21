@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# For 'config.handlers.reviewer_lotto_cheating.reviewer_count_duration'
+require 'active_support/core_ext/integer/time'
 require 'uri'
 require 'reviewer_lotto_cheating/error'
 require 'reviewer_lotto_cheating/models/pullrequest'
@@ -15,9 +17,15 @@ module Lita::Handlers::ReviewerLottoCheating
     config :github_access_token, type: String, required: true
     # repositories to review
     config :repositories, type: [Object], required: true
-    # duration time (second) from now, which is used to calculate review count
-    # for specific user when selecting reviewers
-    config :reviewer_count_duration, type: Numeric, default: 30 * 24 * 60 * 60
+
+    # duration time (second) from now, during which we calculate review count
+    # of each user for selecting reviewers
+    #
+    # it can be specified `Fixnum` literal or `ActiveSupport::Duration` syntax
+    config :reviewer_count_duration,
+           type: [Fixnum, ActiveSupport::Duration],
+           default: 30 * 24 * 60 * 60
+
     # room(channel) or user to which this handler sends messages
     config :chat_target, type: Hash, default: { room: '#general' }
 

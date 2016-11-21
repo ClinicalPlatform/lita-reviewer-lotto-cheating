@@ -30,8 +30,11 @@ Lita.configure do |config|
 
   config.handlers.reviewer_lotto_cheating.github_access_token = ENV['GITHUB_ACCESS_TOKEN']
 
-  # duration in which it calculates review count by each user
-  config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 300
+  # duration time (second) from now, during which we calculate review count
+  # of each user for selecting reviewers
+  config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 60 * 60 * 24
+  # it can also be specified by using `ActiveSupport::Duration`.
+  # config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 1.month
 
   # repotistories from which we get pullrequests
   config.handlers.reviewer_lotto_cheating.repositories = [
