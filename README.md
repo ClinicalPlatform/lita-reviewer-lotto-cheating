@@ -103,19 +103,6 @@ Options:
   working days is used to pick up reviewer candidates.
   reviewers are selected only from users that today is their working day
 
-#### lita reviewer update
-
-    lita reviewer update USERNAME [-l | --level NUMBER] [-w | --working_days COMMA_SEPARATED_NUMBERS]
-
-Update `USERNAME` properties
-
-Options:
-
-- `-l` , `--level` : specify reviewer level
-  ( e.g. `--level 3` )
-- `-w` , `--working_days` : specify working days by comma separated numbers (0-6 Sunday is 0)
-  ( e.g. `--working_days 1,2,3,4,5` )
-
 #### lita reviewer delete
 
     lita reviewer delete USERNAME
