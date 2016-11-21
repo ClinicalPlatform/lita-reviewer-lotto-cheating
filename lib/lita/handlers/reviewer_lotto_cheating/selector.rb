@@ -23,12 +23,12 @@ module Lita::Handlers::ReviewerLottoCheating
         siniors, juniors = users.partition { |user| user.level > 1 }
 
         [siniors, juniors].map do |group|
-          user_points = Hash[group.map do |u|
+          user_points = group.map do |u|
             num_working_days = u.working_days.size.nonzero? || 1
             # reviewed point is multiplied by 100 and rounded off
             point = (reviewed_counts.fetch(u.name, 0).to_f / num_working_days * 100).round
             [u, point]
-          end]
+          end.to_h
 
           max_point = user_points.max_by {|t| t[1] }&.at(1)&.nonzero? || 100
           sorted = group.sort_by do |u|
