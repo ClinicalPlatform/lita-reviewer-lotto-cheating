@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = 'lita-reviewer-lotto-cheating'
   spec.version       = '0.1.0'
-  spec.authors       = ['hyone']
-  spec.email         = ['hyone.development@gmail.com']
+  spec.authors       = ['Clinical Platform']
+  spec.email         = ['dev@clinical-platform.com']
   spec.description   = 'choice reviewers for pullrequest based on review count until now and randomness'
   spec.summary       = 'choice reviewers for pullrequest based on review count until now and randomness'
   spec.homepage      = 'https://github.com/ClinicalPlatform/lita-reviewer-lotto-cheating'
