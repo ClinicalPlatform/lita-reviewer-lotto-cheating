@@ -38,7 +38,7 @@ module Lita::Handlers::ReviewerLottoCheating
         pulls  = @client.pulls(repo_name)
 
         issues.map { |issue| pulls.find { |pull| pull.number == issue.number } }
-              .reject(&:nil?)
+              .compact
       end.flatten
     end
   end
