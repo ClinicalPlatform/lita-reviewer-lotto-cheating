@@ -26,7 +26,7 @@ describe Lita::Handlers::ReviewerLottoCheating::Pullrequest, model: true do
   end
 
   describe '#key' do
-    subject { pullrequest.send(:key) }
+    subject { pullrequest.key }
     it { is_expected.to eq 'pullrequests:/foobar/test1/pull/3' }
   end
 
