@@ -22,23 +22,37 @@ generate access token on github form [here](https://github.com/settings/tokens/n
 
 ## Configuration
 
+### Required attributes
+
+* `github_access_token` (String)
+
+   access token for Github API
+
+* `repositories` (Array)
+
+   repotistories from which we get pullrequests for selecting reviewers
+
+### Optional attributes
+
+* `reviewer_count_duration` (Fixnum or ActiveSupport::Duration)
+
+   duration time (second) from now, during which we calculate review count
+   of each user for selecting reviewers
+
+* `chat_target` (Object)
+
+   chat tareget that this plugin responses
+
+### Example
+
 `lita_config.rb` :
 
 ```ruby
 Lita.configure do |config|
-  ...
-
   config.handlers.reviewer_lotto_cheating.github_access_token = ENV['GITHUB_ACCESS_TOKEN']
 
-  # duration time (second) from now, during which we calculate review count
-  # of each user for selecting reviewers
-  config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 60 * 60 * 24
-  # it can also be specified by using `ActiveSupport::Duration`.
-  # config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 1.month
-
-  # repotistories from which we get pullrequests for selecting reviewers
   config.handlers.reviewer_lotto_cheating.repositories = [
-    # fetch only open pullrequests by tagged with 'レビュアー募集中' from 'foo/repo1'
+    # fetch open pullrequests by tagged with 'レビュアー募集中' from 'foo/repo1'
     {
       name: 'foo/repo1',
       labels: ['レビュアー募集中']
@@ -47,12 +61,13 @@ Lita.configure do |config|
     'foo/repo2'
   ]
 
-  # chat tareget that this plugin responses
+  config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 60 * 60 * 24
+  # it can also be specified by using `ActiveSupport::Duration`.
+  # config.handlers.reviewer_lotto_cheating.reviewer_count_duration = 1.month
+
   config.handlers.reviewer_lotto_cheating.chat_target = {
     room: '#general'
   }
-
-  ...
 end
 ```
 
@@ -70,7 +85,8 @@ $ bundle exec lita
 
     lita reviewer GITHUB_PR_URL
 
-Choice 2 reviewers for `GITHUB_PR_URL`
+Choice 2 reviewers for `GITHUB_PR_URL`.
+And then notice them to us on chat, `GITHUB_PR_URL` comment and status checker
 
 ### Chat Admin commands
 
@@ -78,7 +94,7 @@ Choice 2 reviewers for `GITHUB_PR_URL`
 
     lita reviewer list
 
-List current reviewer candidates
+Display all reviewer candidates
 
 #### lita reviewer add
 
@@ -92,16 +108,15 @@ Options:
 
   specify reviewer level, which is used to divide the user into junior reviewer group and senior reviewer group.
 
-  - a user whose level is greater than or equal to 2 is senior reviewer.
-  - a user whose level is less than 2 is junior reviewer.
+  - a user whose level is greater than or equal to `2` is senior reviewer.
+  - a user whose level is less than `2` is junior reviewer.
 
   one user from each group is selected as a reviewer.
 
 - `-w` , `--working_days` ( e.g. `--working_days 1,2,3,4,5` )
 
-  specify working days by comma separated numbers (0-6 Sunday is 0)
-  working days is used to pick up reviewer candidates.
-  reviewers are selected only from users that today is their working day
+  specify working days by comma separated numbers ( `0-6` Sunday is `0` )
+  reviewers are selected only from reviewer candidates that today is their working day
 
 #### lita reviewer delete
 
