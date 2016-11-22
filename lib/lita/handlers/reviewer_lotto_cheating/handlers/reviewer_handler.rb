@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# For 'config.handlers.reviewer_lotto_cheating.reviewer_count_duration'
 require 'active_support/core_ext/integer/time'
 require 'uri'
+
 require 'reviewer_lotto_cheating/error'
 require 'reviewer_lotto_cheating/models/pullrequest'
 require 'reviewer_lotto_cheating/models/user'

@@ -43,7 +43,7 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def save
       redis.set(key(:level), level)
-      unless working_days.empty?
+      if working_days.present?
         redis.del(key(:working_days))
         redis.sadd(key(:working_days), working_days)
       end
