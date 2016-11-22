@@ -26,7 +26,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def exist?
-      !redis.keys(key('*')).empty?
+      redis.sismember(USERS_KEY, name)
     end
 
     def key(field = nil)

@@ -22,13 +22,13 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
   describe '#exist?' do
     subject { user.exist? }
 
-    context 'when does not exists' do
+    context 'when user does not exists' do
       it { is_expected.to be_falsy }
     end
 
-    context 'when exists' do
+    context 'when user exists' do
       before do
-        Lita.redis.set('users:test:foo', 'fuga')
+        Lita.redis.sadd('users', 'test')
       end
       it { is_expected.to be_truthy }
     end
