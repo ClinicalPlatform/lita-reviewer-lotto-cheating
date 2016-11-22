@@ -114,12 +114,15 @@ module Lita::Handlers::ReviewerLottoCheating
         rescue Error => e
           return on_error(e.message)
         end
-      logger.debug("Select #{User.to_text(reviewers)} on #{pr.path}")
+      logger.debug("Choiced #{reviewers.map(&:name).join(', ')} on #{pr.path}")
 
       on_assigned(pr, reviewers)
 
       pr.save(reviewers)
-      logger.info("Assigned #{User.to_text(reviewers)} as reviewers for #{pr.html_url}")
+      logger.info(
+        "Assigned #{reviewers.map(&:name).join(', ')}" \
+        "as reviewers for #{pr.html_url}"
+      )
     end
 
     def on_assigned(pr, reviewers)

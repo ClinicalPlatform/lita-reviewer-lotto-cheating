@@ -93,10 +93,6 @@ module Lita::Handlers::ReviewerLottoCheating
       def list
         redis.smembers(USERS_KEY).map { |name| new(name: name) }
       end
-
-      def to_text(users)
-        users.map(&:name).join(', ')
-      end
     end
   end
 end
