@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'forwardable'
+
 require 'reviewer_lotto_cheating/error'
 require 'reviewer_lotto_cheating/model'
 
@@ -8,7 +9,6 @@ module Lita::Handlers::ReviewerLottoCheating
   class Pullrequest < Model
     extend Forwardable
 
-    attr_reader :redis
     def_delegators :@pr, :html_url, :number, :id
 
     PULLREQUESTS_KEY         = 'pullrequests'
@@ -20,7 +20,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def assigned?
-      redis.sismember(PULLREQUESTS_KEY, @pr.id)
+      @redis.sismember(PULLREQUESTS_KEY, @pr.id)
     end
 
     def key
@@ -29,11 +29,11 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def save(reviewers)
       # save for detection of whether or not it was reviewd
-      redis.sadd(PULLREQUESTS_KEY, @pr.id)
+      @redis.sadd(PULLREQUESTS_KEY, @pr.id)
       # save for review count calculation
-      redis.zadd(ORDERED_PULLREQUESTS_KEY, Time.now.to_i, key)
+      @redis.zadd(ORDERED_PULLREQUESTS_KEY, Time.now.to_i, key)
       # log of reviewers assignment
-      redis.sadd(key, reviewers.map(&:name))
+      @redis.sadd(key, reviewers.map(&:name))
     end
 
     def latest_commit
