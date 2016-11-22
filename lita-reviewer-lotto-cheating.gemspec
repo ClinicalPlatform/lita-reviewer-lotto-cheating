@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['hyone.development@gmail.com']
   spec.description   = 'choice reviewers for pullrequest'
   spec.summary       = 'choice reviewers for pullrequest'
-  spec.homepage      = 'https://hyone-lita-sample.herokuapp.com'
+  spec.homepage      = 'https://github.com/ClinicalPlatform/lita-reviewer-lotto-cheating'
   spec.license       = 'MIT'
   spec.metadata      = { 'lita_plugin_type' => 'handler' }
 
