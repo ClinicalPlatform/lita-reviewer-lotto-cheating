@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.1.0'
   spec.authors       = ['hyone']
   spec.email         = ['hyone.development@gmail.com']
-  spec.description   = 'choice reviewers for pullrequest'
-  spec.summary       = 'choice reviewers for pullrequest'
+  spec.description   = 'choice reviewers for pullrequest based on review count until now and randomness'
+  spec.summary       = 'choice reviewers for pullrequest based on review count until now and randomness'
   spec.homepage      = 'https://github.com/ClinicalPlatform/lita-reviewer-lotto-cheating'
   spec.license       = 'MIT'
   spec.metadata      = { 'lita_plugin_type' => 'handler' }
@@ -31,4 +31,3 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
 end
-
