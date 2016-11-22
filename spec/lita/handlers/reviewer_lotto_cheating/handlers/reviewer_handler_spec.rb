@@ -97,7 +97,7 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
 
       it do
         is_expected.to eq \
-          'test2, test1 are assigned as the reviewers for https://github.com/foobar/test1/pull/3!!'
+          '@test2, @test1 are assigned as the reviewers for https://github.com/foobar/test1/pull/3!!'
       end
 
       context 'and send same reviewer command again' do

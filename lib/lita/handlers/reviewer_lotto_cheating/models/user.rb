@@ -52,8 +52,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def screen_name
-      # "@#{name}"
-      name.to_s
+      "@#{name}"
     end
 
     def update(level: nil, working_days: nil)
