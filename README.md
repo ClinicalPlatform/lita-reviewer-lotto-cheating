@@ -1,6 +1,6 @@
 # lita-reviewer-lotto-cheating
 
-This handler checks pullrequests on specified github repos and when it finds them need to review, select reviewers for it by review counts before and lotto, and then notice to us.
+This handler checks pullrequests on github repos specified and when it finds them need to review, assign reviewers for them based on both review counts of each user before and a little bit of lotto, and then notice to us.
 
 ## Installation
 
@@ -16,7 +16,7 @@ gem "lita-reviewer-lotto-cheating"
 
 generate access token on github form [here](https://github.com/settings/tokens/new) with following scopes:
 
-- [ ] repo (check it if you want also to access private repositories)
+- [ ] repo (check this if you want also to access private repositories)
   - [x] repo:status
   - [x] public_repo
 
@@ -87,8 +87,6 @@ $ bundle exec lita
 
 Choice 2 reviewers for `GITHUB_PR_URL`.
 And then notice them to us on chat, `GITHUB_PR_URL` comment and status checker
-
-### Chat Admin commands
 
 #### lita reviewer list
 
