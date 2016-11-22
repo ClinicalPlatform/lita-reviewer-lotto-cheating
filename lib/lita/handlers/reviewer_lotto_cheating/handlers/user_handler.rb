@@ -50,8 +50,8 @@ module Lita::Handlers::ReviewerLottoCheating
       kwargs = build_arguments(
         response.extensions[:kwargs].merge(name: name)
       )
-      User.add_or_update(kwargs)
-      response.reply(t('message.add_or_updated', name: name))
+      User.upsert(kwargs)
+      response.reply(t('message.upserted', name: name))
     end
 
     def delete_user(response)

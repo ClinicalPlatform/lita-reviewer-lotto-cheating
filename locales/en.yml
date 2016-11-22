@@ -15,7 +15,7 @@ en:
           user_not_found: "User not found: %{name}"
           user_already_exists: "User already exists: %{name}"
         message:
-          add_or_updated: "%{name} is successfully added (updated)."
+          upserted: "%{name} is successfully added (updated)."
           already_assigned: "%{url} has been already assigned reviewers."
           assigned_reviewers:
             chat: "%{reviewers} are assigned as the reviewers for %{url}!!"

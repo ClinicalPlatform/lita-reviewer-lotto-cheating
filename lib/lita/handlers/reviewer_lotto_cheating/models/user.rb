@@ -81,7 +81,7 @@ module Lita::Handlers::ReviewerLottoCheating
         @redis = redis
       end
 
-      def add_or_update(name:, level: nil, working_days: nil)
+      def upsert(name:, level: nil, working_days: nil)
         user = new(name: name)
         user.update(level: level, working_days: working_days)
       end

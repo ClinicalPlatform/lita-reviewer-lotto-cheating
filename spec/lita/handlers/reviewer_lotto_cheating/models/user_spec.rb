@@ -127,9 +127,9 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     end
   end
 
-  describe '.add_or_update' do
+  describe '.upsert' do
     let(:args) { { name: 'test', level: 5, working_days: [1] } }
-    subject { APP::User.add_or_update(args) }
+    subject { APP::User.upsert(args) }
 
     context 'when user exists' do
       before { user.save }
