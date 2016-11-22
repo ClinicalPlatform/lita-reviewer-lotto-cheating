@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'active_support/core_ext/hash'
 require 'forwardable'
 
 require 'reviewer_lotto_cheating/error'
@@ -88,9 +89,8 @@ module Lita::Handlers::ReviewerLottoCheating
         redis.zrangebyscore(ORDERED_PULLREQUESTS_KEY, start, now)
           .map { |k| redis.smembers(k) }
           .flatten
-          .each_with_object({}) do |user, hash|
-            hash[user] = hash.fetch(user, 0) + 1
-          end
+          .group_by { |k| k }
+          .transform_values(&:size)
       end
 
       private

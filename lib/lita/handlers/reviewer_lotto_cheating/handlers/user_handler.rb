@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'active_support/core_ext/hash'
 require 'lita-keyword-arguments'
+
 require 'reviewer_lotto_cheating/handler'
 require 'reviewer_lotto_cheating/models/user'
 
@@ -72,8 +74,7 @@ module Lita::Handlers::ReviewerLottoCheating
       kwargs[:name]         = options[:name]
       kwargs[:level]        = options[:level]
       kwargs[:working_days] = options[:working_days]&.split(',')
-      # delete fields whose value is `nil` or `""`
-      kwargs.reject { |_, v| !v || v&.empty? }
+      kwargs.compact
     end
 
     Lita.register_handler(self)
