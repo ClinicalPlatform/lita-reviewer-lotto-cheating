@@ -36,7 +36,7 @@ module Lita::Handlers::ReviewerLottoCheating
       :assign_reviewers_to_all_from_chat,
       command: true,
       help: {
-        'reviewer GITHUB_PR_URL' => t('help.reviewer')
+        'reviewer all' => t('help.reviewer_all')
       }
     route /reviewer\s+(#{ URI.regexp })\b/,
       :assign_reviewers_from_chat,
