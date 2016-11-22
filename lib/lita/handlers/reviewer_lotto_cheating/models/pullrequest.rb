@@ -67,14 +67,14 @@ module Lita::Handlers::ReviewerLottoCheating
       #
       #   example:
       #
-      #   config.handlers.reviewer.repositories = [
-      #     # get whole open pullrequests from this repo
-      #     'foo/repo2'
-      #     # get only open pullrequests specified by labels from this repo
+      #   config.handlers.reviewer_lotto_cheating.repositories = [
+      #     # fetch open pullrequests by tagged with 'require review' from this repo
       #     {
       #       name: 'foo/repo1',
       #       labels: ['require review']
       #     },
+      #     # fetch all open pullrequests from this repo
+      #     'foo/repo2'
       #   ]
       def list(repositories)
         github.pullrequests(repositories).map { |pr| new(pr) }
