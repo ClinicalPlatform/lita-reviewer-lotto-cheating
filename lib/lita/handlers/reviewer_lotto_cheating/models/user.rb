@@ -30,7 +30,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def key(field = nil)
-      "#{USERS_KEY}:#{name}#{field.present? ? ":#{field}" : ''}"
+      [USERS_KEY, name, field].compact.join(':')
     end
 
     def level

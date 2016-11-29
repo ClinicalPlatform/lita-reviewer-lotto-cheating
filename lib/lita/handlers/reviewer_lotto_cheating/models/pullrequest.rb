@@ -25,7 +25,7 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def key
-      "#{PULLREQUESTS_KEY}:#{path}"
+      [PULLREQUESTS_KEY, path].join(':')
     end
 
     def save(reviewers)
