@@ -17,7 +17,7 @@ en:
           user_already_exists: "User already exists: %{name}"
         message:
           upserted: "%{name} is successfully added (updated)."
-          already_assigned: "%{url} has been already assigned reviewers."
+          already_assigned: "%{url} has already been assigned reviewers."
           assigned_reviewers:
             chat: "%{reviewers} are assigned as the reviewers for %{url}!!"
             comment: "%{reviewers} are assigned as the reviewers!!"

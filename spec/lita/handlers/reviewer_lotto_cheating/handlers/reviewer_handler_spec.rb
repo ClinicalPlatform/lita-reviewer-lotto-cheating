@@ -106,7 +106,7 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
             send_command('reviewer https://github.com/foobar/test1/pull/3')
           end
         end
-        it { is_expected.to eq 'https://github.com/foobar/test1/pull/3 has been already assigned reviewers.' }
+        it { is_expected.to eq 'https://github.com/foobar/test1/pull/3 has already been assigned reviewers.' }
       end
     end
   end
