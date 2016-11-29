@@ -13,8 +13,8 @@ module Lita::Handlers::ReviewerLottoCheating
     def initialize(name:, level: nil, working_days: nil, options: {})
       @redis = options[:redis] || self.class.redis
       @name  = name
-      @level = level if level
-      @working_days = working_days if working_days
+      @level = level
+      @working_days = working_days
     end
 
     def delete
