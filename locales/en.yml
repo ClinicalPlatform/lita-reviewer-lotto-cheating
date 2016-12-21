@@ -1,0 +1,34 @@
+en:
+  lita:
+    handlers:
+      reviewer_lotto_cheating:
+        application_name: 'LitaReviewer'
+        help:
+          reviewer: "Choice 2 reviewers for GITHUB_PR_URL"
+          reviewer_all: "Choice 2 reviewers for each pullrequest requires review"
+          list_user: "List current reviewer candidates"
+          add_user: "Add <USERNAME> to reviewer candidates ( or update <USERNAME> if already exists )"
+          update_user: "Update <USERNAME> properties"
+          delete_user: "Delete <USERNAME> from reviewer candidates"
+        error:
+          invalid_url: "\"%{url}\" is not github pullrequest URL."
+          comment_failure: "Failed to write comment: %{text}"
+          user_not_found: "User not found: %{name}"
+          user_already_exists: "User already exists: %{name}"
+        message:
+          upserted: "%{name} is successfully added (updated)."
+          already_assigned: "%{url} has already been assigned reviewers."
+          assigned_reviewers:
+            chat: "%{reviewers} are assigned as the reviewers for %{url}!!"
+            comment: "%{reviewers} are assigned as the reviewers!!"
+          deleted: "%{name} is successfully deleted."
+          updated: "%{name} is successfully updated."
+        date:
+          abbr_day_names:
+            - Sun
+            - Mon
+            - Tue
+            - Wed
+            - Thu
+            - Fri
+            - Sat

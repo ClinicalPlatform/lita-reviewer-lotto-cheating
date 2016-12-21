@@ -1,0 +1,386 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/foobar/test1/issues
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.4.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 6992106932f23c9e448cdbd6698ac5fea4356dc5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 07 Nov 2016 02:18:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Reset:
+      - '1478488697'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"d2b90e7684d5c99bf196467a67369dbc"
+      X-Oauth-Scopes:
+      - public_repo, repo:status
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - bd82876e9bf04990f289ba22f246ee9b
+      X-Github-Request-Id:
+      - CBBD3001:0858:2660AD3:581FE468
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9uZS90
+        ZXN0MS9pc3N1ZXMvNyIsInJlcG9zaXRvcnlfdXJsIjoiaHR0cHM6Ly9hcGku
+        Z2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MSIsImxhYmVsc191cmwiOiJo
+        dHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vl
+        cy83L2xhYmVsc3svbmFtZX0iLCJjb21tZW50c191cmwiOiJodHRwczovL2Fw
+        aS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy83L2NvbW1l
+        bnRzIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVw
+        b3MvaHlvbmUvdGVzdDEvaXNzdWVzLzcvZXZlbnRzIiwiaHRtbF91cmwiOiJo
+        dHRwczovL2dpdGh1Yi5jb20vaHlvbmUvdGVzdDEvcHVsbC83IiwiaWQiOjE4
+        NTAwNjAyOSwibnVtYmVyIjo3LCJ0aXRsZSI6IkFkZCBkIiwidXNlciI6eyJs
+        b2dpbiI6Imh5b25lIiwiaWQiOjEyMzUyNywiYXZhdGFyX3VybCI6Imh0dHBz
+        Oi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xMjM1Mjc/dj0z
+        IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIu
+        Y29tL3VzZXJzL2h5b25lIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5j
+        b20vaHlvbmUiLCJmb2xsb3dlcnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHVi
+        LmNvbS91c2Vycy9oeW9uZS9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoi
+        aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9mb2xsb3dpbmd7
+        L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHVi
+        LmNvbS91c2Vycy9oeW9uZS9naXN0c3svZ2lzdF9pZH0iLCJzdGFycmVkX3Vy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvc3RhcnJl
+        ZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6
+        Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9zdWJzY3JpcHRpb25zIiwi
+        b3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3Vz
+        ZXJzL2h5b25lL29yZ3MiLCJyZXBvc191cmwiOiJodHRwczovL2FwaS5naXRo
+        dWIuY29tL3VzZXJzL2h5b25lL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBz
+        Oi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZXZlbnRzey9wcml2YWN5
+        fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIu
+        Y29tL3VzZXJzL2h5b25lL3JlY2VpdmVkX2V2ZW50cyIsInR5cGUiOiJVc2Vy
+        Iiwic2l0ZV9hZG1pbiI6ZmFsc2V9LCJsYWJlbHMiOltdLCJzdGF0ZSI6Im9w
+        ZW4iLCJsb2NrZWQiOmZhbHNlLCJhc3NpZ25lZSI6bnVsbCwiYXNzaWduZWVz
+        IjpbXSwibWlsZXN0b25lIjpudWxsLCJjb21tZW50cyI6MSwiY3JlYXRlZF9h
+        dCI6IjIwMTYtMTAtMjVUMDI6NTM6NDlaIiwidXBkYXRlZF9hdCI6IjIwMTYt
+        MTAtMjVUMDI6NTQ6MDdaIiwiY2xvc2VkX2F0IjpudWxsLCJwdWxsX3JlcXVl
+        c3QiOnsidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9u
+        ZS90ZXN0MS9wdWxscy83IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5j
+        b20vaHlvbmUvdGVzdDEvcHVsbC83IiwiZGlmZl91cmwiOiJodHRwczovL2dp
+        dGh1Yi5jb20vaHlvbmUvdGVzdDEvcHVsbC83LmRpZmYiLCJwYXRjaF91cmwi
+        OiJodHRwczovL2dpdGh1Yi5jb20vaHlvbmUvdGVzdDEvcHVsbC83LnBhdGNo
+        In0sImJvZHkiOiIifSx7InVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        cmVwb3MvaHlvbmUvdGVzdDEvaXNzdWVzLzYiLCJyZXBvc2l0b3J5X3VybCI6
+        Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlvbmUvdGVzdDEiLCJs
+        YWJlbHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9u
+        ZS90ZXN0MS9pc3N1ZXMvNi9sYWJlbHN7L25hbWV9IiwiY29tbWVudHNfdXJs
+        IjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MS9p
+        c3N1ZXMvNi9jb21tZW50cyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5n
+        aXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy82L2V2ZW50cyIs
+        Imh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2h5b25lL3Rlc3QxL3B1
+        bGwvNiIsImlkIjoxODQ3NTU5NTEsIm51bWJlciI6NiwidGl0bGUiOiJBZGQg
+        YyIsInVzZXIiOnsibG9naW4iOiJoeW9uZSIsImlkIjoxMjM1MjcsImF2YXRh
+        cl91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29t
+        L3UvMTIzNTI3P3Y9MyIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6
+        Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZSIsImh0bWxfdXJsIjoiaHR0
+        cHM6Ly9naXRodWIuY29tL2h5b25lIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBz
+        Oi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZm9sbG93ZXJzIiwiZm9s
+        bG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlv
+        bmUvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBz
+        Oi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZ2lzdHN7L2dpc3RfaWR9
+        Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJz
+        L2h5b25lL3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25z
+        X3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvc3Vi
+        c2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGku
+        Z2l0aHViLmNvbS91c2Vycy9oeW9uZS9vcmdzIiwicmVwb3NfdXJsIjoiaHR0
+        cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9yZXBvcyIsImV2ZW50
+        c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL2V2
+        ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6
+        Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9yZWNlaXZlZF9ldmVudHMi
+        LCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwibGFiZWxzIjpb
+        eyJpZCI6NDY3NTI3OTgxLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29t
+        L3JlcG9zL2h5b25lL3Rlc3QxL2xhYmVscy8lRTMlODMlQUMlRTMlODMlOTMl
+        RTMlODMlQTUlRTMlODIlQTIlRTMlODMlQkMlRTUlOEIlOUYlRTklOUIlODYl
+        RTQlQjglQUQiLCJuYW1lIjoi44Os44OT44Ol44Ki44O85Yuf6ZuG5LitIiwi
+        Y29sb3IiOiIwZThhMTYiLCJkZWZhdWx0IjpmYWxzZX1dLCJzdGF0ZSI6Im9w
+        ZW4iLCJsb2NrZWQiOmZhbHNlLCJhc3NpZ25lZSI6bnVsbCwiYXNzaWduZWVz
+        IjpbXSwibWlsZXN0b25lIjpudWxsLCJjb21tZW50cyI6NjYsImNyZWF0ZWRf
+        YXQiOiIyMDE2LTEwLTI0VDA2OjAzOjA4WiIsInVwZGF0ZWRfYXQiOiIyMDE2
+        LTExLTA3VDAyOjEzOjEwWiIsImNsb3NlZF9hdCI6bnVsbCwicHVsbF9yZXF1
+        ZXN0Ijp7InVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlv
+        bmUvdGVzdDEvcHVsbHMvNiIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIu
+        Y29tL2h5b25lL3Rlc3QxL3B1bGwvNiIsImRpZmZfdXJsIjoiaHR0cHM6Ly9n
+        aXRodWIuY29tL2h5b25lL3Rlc3QxL3B1bGwvNi5kaWZmIiwicGF0Y2hfdXJs
+        IjoiaHR0cHM6Ly9naXRodWIuY29tL2h5b25lL3Rlc3QxL3B1bGwvNi5wYXRj
+        aCJ9LCJib2R5IjoiIn0seyJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29t
+        L3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy81IiwicmVwb3NpdG9yeV91cmwi
+        OiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxIiwi
+        bGFiZWxzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlv
+        bmUvdGVzdDEvaXNzdWVzLzUvbGFiZWxzey9uYW1lfSIsImNvbW1lbnRzX3Vy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlvbmUvdGVzdDEv
+        aXNzdWVzLzUvY29tbWVudHMiLCJldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGku
+        Z2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MS9pc3N1ZXMvNS9ldmVudHMi
+        LCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9oeW9uZS90ZXN0MS9w
+        dWxsLzUiLCJpZCI6MTg0NzU1NDA2LCJudW1iZXIiOjUsInRpdGxlIjoiQWRk
+        IGEgOiB2b2wuMiIsInVzZXIiOnsibG9naW4iOiJoeW9uZSIsImlkIjoxMjM1
+        MjcsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNv
+        bnRlbnQuY29tL3UvMTIzNTI3P3Y9MyIsImdyYXZhdGFyX2lkIjoiIiwidXJs
+        IjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZSIsImh0bWxf
+        dXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2h5b25lIiwiZm9sbG93ZXJzX3Vy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZm9sbG93
+        ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        dXNlcnMvaHlvbmUvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3Vy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZ2lzdHN7
+        L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIu
+        Y29tL3VzZXJzL2h5b25lL3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJz
+        Y3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMv
+        aHlvbmUvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0
+        cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9vcmdzIiwicmVwb3Nf
+        dXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9yZXBv
+        cyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJz
+        L2h5b25lL2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJs
+        IjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9oeW9uZS9yZWNlaXZl
+        ZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwi
+        bGFiZWxzIjpbeyJpZCI6NDY3NTI3OTgxLCJ1cmwiOiJodHRwczovL2FwaS5n
+        aXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2xhYmVscy8lRTMlODMlQUMl
+        RTMlODMlOTMlRTMlODMlQTUlRTMlODIlQTIlRTMlODMlQkMlRTUlOEIlOUYl
+        RTklOUIlODYlRTQlQjglQUQiLCJuYW1lIjoi44Os44OT44Ol44Ki44O85Yuf
+        6ZuG5LitIiwiY29sb3IiOiIwZThhMTYiLCJkZWZhdWx0IjpmYWxzZX1dLCJz
+        dGF0ZSI6Im9wZW4iLCJsb2NrZWQiOmZhbHNlLCJhc3NpZ25lZSI6bnVsbCwi
+        YXNzaWduZWVzIjpbXSwibWlsZXN0b25lIjpudWxsLCJjb21tZW50cyI6NjYs
+        ImNyZWF0ZWRfYXQiOiIyMDE2LTEwLTI0VDA1OjU4OjI4WiIsInVwZGF0ZWRf
+        YXQiOiIyMDE2LTExLTA3VDAyOjEzOjEyWiIsImNsb3NlZF9hdCI6bnVsbCwi
+        cHVsbF9yZXF1ZXN0Ijp7InVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        cmVwb3MvaHlvbmUvdGVzdDEvcHVsbHMvNSIsImh0bWxfdXJsIjoiaHR0cHM6
+        Ly9naXRodWIuY29tL2h5b25lL3Rlc3QxL3B1bGwvNSIsImRpZmZfdXJsIjoi
+        aHR0cHM6Ly9naXRodWIuY29tL2h5b25lL3Rlc3QxL3B1bGwvNS5kaWZmIiwi
+        cGF0Y2hfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2h5b25lL3Rlc3QxL3B1
+        bGwvNS5wYXRjaCJ9LCJib2R5IjoiIn0seyJ1cmwiOiJodHRwczovL2FwaS5n
+        aXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy80IiwicmVwb3Np
+        dG9yeV91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2h5b25l
+        L3Rlc3QxIiwibGFiZWxzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        cmVwb3MvaHlvbmUvdGVzdDEvaXNzdWVzLzQvbGFiZWxzey9uYW1lfSIsImNv
+        bW1lbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlv
+        bmUvdGVzdDEvaXNzdWVzLzQvY29tbWVudHMiLCJldmVudHNfdXJsIjoiaHR0
+        cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MS9pc3N1ZXMv
+        NC9ldmVudHMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9oeW9u
+        ZS90ZXN0MS9wdWxsLzQiLCJpZCI6MTg0NzQwOTA2LCJudW1iZXIiOjQsInRp
+        dGxlIjoiQWRkIGIiLCJ1c2VyIjp7ImxvZ2luIjoiaHlvbmUiLCJpZCI6MTIz
+        NTI3LCJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJj
+        b250ZW50LmNvbS91LzEyMzUyNz92PTMiLCJncmF2YXRhcl9pZCI6IiIsInVy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUiLCJodG1s
+        X3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9oeW9uZSIsImZvbGxvd2Vyc191
+        cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL2ZvbGxv
+        d2VycyIsImZvbGxvd2luZ191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29t
+        L3VzZXJzL2h5b25lL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191
+        cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL2dpc3Rz
+        ey9naXN0X2lkfSIsInN0YXJyZWRfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHVi
+        LmNvbS91c2Vycy9oeW9uZS9zdGFycmVkey9vd25lcn17L3JlcG99Iiwic3Vi
+        c2NyaXB0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJz
+        L2h5b25lL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0
+        dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvb3JncyIsInJlcG9z
+        X3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvcmVw
+        b3MiLCJldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vy
+        cy9oeW9uZS9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3Vy
+        bCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvcmVjZWl2
+        ZWRfZXZlbnRzIiwidHlwZSI6IlVzZXIiLCJzaXRlX2FkbWluIjpmYWxzZX0s
+        ImxhYmVscyI6W10sInN0YXRlIjoib3BlbiIsImxvY2tlZCI6ZmFsc2UsImFz
+        c2lnbmVlIjpudWxsLCJhc3NpZ25lZXMiOltdLCJtaWxlc3RvbmUiOm51bGws
+        ImNvbW1lbnRzIjo3LCJjcmVhdGVkX2F0IjoiMjAxNi0xMC0yNFQwMzoyMDo1
+        M1oiLCJ1cGRhdGVkX2F0IjoiMjAxNi0xMC0yNlQwNjoxNTozOFoiLCJjbG9z
+        ZWRfYXQiOm51bGwsInB1bGxfcmVxdWVzdCI6eyJ1cmwiOiJodHRwczovL2Fw
+        aS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL3B1bGxzLzQiLCJodG1s
+        X3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9oeW9uZS90ZXN0MS9wdWxsLzQi
+        LCJkaWZmX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9oeW9uZS90ZXN0MS9w
+        dWxsLzQuZGlmZiIsInBhdGNoX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9o
+        eW9uZS90ZXN0MS9wdWxsLzQucGF0Y2gifSwiYm9keSI6IiJ9LHsidXJsIjoi
+        aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MS9pc3N1
+        ZXMvMiIsInJlcG9zaXRvcnlfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNv
+        bS9yZXBvcy9oeW9uZS90ZXN0MSIsImxhYmVsc191cmwiOiJodHRwczovL2Fw
+        aS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy8yL2xhYmVs
+        c3svbmFtZX0iLCJjb21tZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIu
+        Y29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy8yL2NvbW1lbnRzIiwiZXZl
+        bnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlvbmUv
+        dGVzdDEvaXNzdWVzLzIvZXZlbnRzIiwiaHRtbF91cmwiOiJodHRwczovL2dp
+        dGh1Yi5jb20vaHlvbmUvdGVzdDEvaXNzdWVzLzIiLCJpZCI6MTgzODU3ODA3
+        LCJudW1iZXIiOjIsInRpdGxlIjoiaXNzdWUgMiIsInVzZXIiOnsibG9naW4i
+        OiJoeW9uZSIsImlkIjoxMjM1MjcsImF2YXRhcl91cmwiOiJodHRwczovL2F2
+        YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMTIzNTI3P3Y9MyIsImdy
+        YXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91
+        c2Vycy9oeW9uZSIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2h5
+        b25lIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        dXNlcnMvaHlvbmUvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBz
+        Oi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZm9sbG93aW5ney9vdGhl
+        cl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20v
+        dXNlcnMvaHlvbmUvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJo
+        dHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL3N0YXJyZWR7L293
+        bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBp
+        LmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvc3Vic2NyaXB0aW9ucyIsIm9yZ2Fu
+        aXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9o
+        eW9uZS9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNv
+        bS91c2Vycy9oeW9uZS9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2Fw
+        aS5naXRodWIuY29tL3VzZXJzL2h5b25lL2V2ZW50c3svcHJpdmFjeX0iLCJy
+        ZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91
+        c2Vycy9oeW9uZS9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNp
+        dGVfYWRtaW4iOmZhbHNlfSwibGFiZWxzIjpbXSwic3RhdGUiOiJvcGVuIiwi
+        bG9ja2VkIjpmYWxzZSwiYXNzaWduZWUiOm51bGwsImFzc2lnbmVlcyI6W10s
+        Im1pbGVzdG9uZSI6bnVsbCwiY29tbWVudHMiOjAsImNyZWF0ZWRfYXQiOiIy
+        MDE2LTEwLTE5VDAzOjM0OjE4WiIsInVwZGF0ZWRfYXQiOiIyMDE2LTEwLTE5
+        VDAzOjM0OjE4WiIsImNsb3NlZF9hdCI6bnVsbCwiYm9keSI6IiJ9LHsidXJs
+        IjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9oeW9uZS90ZXN0MS9p
+        c3N1ZXMvMSIsInJlcG9zaXRvcnlfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHVi
+        LmNvbS9yZXBvcy9oeW9uZS90ZXN0MSIsImxhYmVsc191cmwiOiJodHRwczov
+        L2FwaS5naXRodWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy8xL2xh
+        YmVsc3svbmFtZX0iLCJjb21tZW50c191cmwiOiJodHRwczovL2FwaS5naXRo
+        dWIuY29tL3JlcG9zL2h5b25lL3Rlc3QxL2lzc3Vlcy8xL2NvbW1lbnRzIiwi
+        ZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvaHlv
+        bmUvdGVzdDEvaXNzdWVzLzEvZXZlbnRzIiwiaHRtbF91cmwiOiJodHRwczov
+        L2dpdGh1Yi5jb20vaHlvbmUvdGVzdDEvaXNzdWVzLzEiLCJpZCI6MTgzODU3
+        Nzg2LCJudW1iZXIiOjEsInRpdGxlIjoiaXNzdWUgMSIsInVzZXIiOnsibG9n
+        aW4iOiJoeW9uZSIsImlkIjoxMjM1MjcsImF2YXRhcl91cmwiOiJodHRwczov
+        L2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMTIzNTI3P3Y9MyIs
+        ImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNv
+        bS91c2Vycy9oeW9uZSIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29t
+        L2h5b25lIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5j
+        b20vdXNlcnMvaHlvbmUvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0
+        dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvZm9sbG93aW5ney9v
+        dGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5j
+        b20vdXNlcnMvaHlvbmUvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwi
+        OiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL3N0YXJyZWR7
+        L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8v
+        YXBpLmdpdGh1Yi5jb20vdXNlcnMvaHlvbmUvc3Vic2NyaXB0aW9ucyIsIm9y
+        Z2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vy
+        cy9oeW9uZS9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHVi
+        LmNvbS91c2Vycy9oeW9uZS9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczov
+        L2FwaS5naXRodWIuY29tL3VzZXJzL2h5b25lL2V2ZW50c3svcHJpdmFjeX0i
+        LCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNv
+        bS91c2Vycy9oeW9uZS9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIs
+        InNpdGVfYWRtaW4iOmZhbHNlfSwibGFiZWxzIjpbXSwic3RhdGUiOiJvcGVu
+        IiwibG9ja2VkIjpmYWxzZSwiYXNzaWduZWUiOm51bGwsImFzc2lnbmVlcyI6
+        W10sIm1pbGVzdG9uZSI6bnVsbCwiY29tbWVudHMiOjIsImNyZWF0ZWRfYXQi
+        OiIyMDE2LTEwLTE5VDAzOjM0OjEwWiIsInVwZGF0ZWRfYXQiOiIyMDE2LTEw
+        LTE5VDA2OjIyOjU5WiIsImNsb3NlZF9hdCI6bnVsbCwiYm9keSI6IiJ9XQ==
+    http_version: 
+  recorded_at: Mon, 07 Nov 2016 02:18:17 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/foobar/test1/pulls
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.4.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 6992106932f23c9e448cdbd6698ac5fea4356dc5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 07 Nov 2016 02:18:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4998'
+      X-Ratelimit-Reset:
+      - '1478488697'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"1fe5e5ee21bf8474545c2b1c8a340451"
+      X-Oauth-Scopes:
+      - public_repo, repo:status
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - 7f48e2f7761567e923121f17538d7a6d
+      X-Github-Request-Id:
+      - CBBD3001:0859:2D1A9A1:581FE469
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"url":"https://api.github.com/repos/foobar/test1/pulls/7","id":90730338,"html_url":"https://github.com/foobar/test1/pull/7","diff_url":"https://github.com/foobar/test1/pull/7.diff","patch_url":"https://github.com/foobar/test1/pull/7.patch","issue_url":"https://api.github.com/repos/foobar/test1/issues/7","number":7,"state":"open","locked":false,"title":"Add
+        d","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"body":"","created_at":"2016-10-25T02:53:49Z","updated_at":"2016-10-25T02:54:07Z","closed_at":null,"merged_at":null,"merge_commit_sha":"4d24ad9ce918547be2c94221290a7491c198eaca","assignee":null,"assignees":[],"milestone":null,"commits_url":"https://api.github.com/repos/foobar/test1/pulls/7/commits","review_comments_url":"https://api.github.com/repos/foobar/test1/pulls/7/comments","review_comment_url":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}","comments_url":"https://api.github.com/repos/foobar/test1/issues/7/comments","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/15c9cdda8bf3791167a9246150fe0abb00258ba8","head":{"label":"foobar:branch4","ref":"branch4","sha":"15c9cdda8bf3791167a9246150fe0abb00258ba8","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"base":{"label":"foobar:master","ref":"master","sha":"b8d21cf43e1d5056190f28ea2133777a5c691de1","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/foobar/test1/pulls/7"},"html":{"href":"https://github.com/foobar/test1/pull/7"},"issue":{"href":"https://api.github.com/repos/foobar/test1/issues/7"},"comments":{"href":"https://api.github.com/repos/foobar/test1/issues/7/comments"},"review_comments":{"href":"https://api.github.com/repos/foobar/test1/pulls/7/comments"},"review_comment":{"href":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/foobar/test1/pulls/7/commits"},"statuses":{"href":"https://api.github.com/repos/foobar/test1/statuses/15c9cdda8bf3791167a9246150fe0abb00258ba8"}}},{"url":"https://api.github.com/repos/foobar/test1/pulls/6","id":90553639,"html_url":"https://github.com/foobar/test1/pull/6","diff_url":"https://github.com/foobar/test1/pull/6.diff","patch_url":"https://github.com/foobar/test1/pull/6.patch","issue_url":"https://api.github.com/repos/foobar/test1/issues/6","number":6,"state":"open","locked":false,"title":"Add
+        c","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"body":"","created_at":"2016-10-24T06:03:08Z","updated_at":"2016-11-07T02:13:10Z","closed_at":null,"merged_at":null,"merge_commit_sha":"03afe13b966bf5da923d7fcb7f3218a566c65134","assignee":null,"assignees":[],"milestone":null,"commits_url":"https://api.github.com/repos/foobar/test1/pulls/6/commits","review_comments_url":"https://api.github.com/repos/foobar/test1/pulls/6/comments","review_comment_url":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}","comments_url":"https://api.github.com/repos/foobar/test1/issues/6/comments","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/43dc1f4e246b0fefa056572c844f4aadbe2438d9","head":{"label":"foobar:branch3","ref":"branch3","sha":"43dc1f4e246b0fefa056572c844f4aadbe2438d9","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"base":{"label":"foobar:master","ref":"master","sha":"b8d21cf43e1d5056190f28ea2133777a5c691de1","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/foobar/test1/pulls/6"},"html":{"href":"https://github.com/foobar/test1/pull/6"},"issue":{"href":"https://api.github.com/repos/foobar/test1/issues/6"},"comments":{"href":"https://api.github.com/repos/foobar/test1/issues/6/comments"},"review_comments":{"href":"https://api.github.com/repos/foobar/test1/pulls/6/comments"},"review_comment":{"href":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/foobar/test1/pulls/6/commits"},"statuses":{"href":"https://api.github.com/repos/foobar/test1/statuses/43dc1f4e246b0fefa056572c844f4aadbe2438d9"}}},{"url":"https://api.github.com/repos/foobar/test1/pulls/5","id":90553293,"html_url":"https://github.com/foobar/test1/pull/5","diff_url":"https://github.com/foobar/test1/pull/5.diff","patch_url":"https://github.com/foobar/test1/pull/5.patch","issue_url":"https://api.github.com/repos/foobar/test1/issues/5","number":5,"state":"open","locked":false,"title":"Add
+        a : vol.2","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"body":"","created_at":"2016-10-24T05:58:28Z","updated_at":"2016-11-07T02:13:12Z","closed_at":null,"merged_at":null,"merge_commit_sha":"493aade75f20c8157819637df7395c7c94a8e1a9","assignee":null,"assignees":[],"milestone":null,"commits_url":"https://api.github.com/repos/foobar/test1/pulls/5/commits","review_comments_url":"https://api.github.com/repos/foobar/test1/pulls/5/comments","review_comment_url":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}","comments_url":"https://api.github.com/repos/foobar/test1/issues/5/comments","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/486f6f44465c1a90695f686742f75f9260a34034","head":{"label":"foobar:branch1","ref":"branch1","sha":"486f6f44465c1a90695f686742f75f9260a34034","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"base":{"label":"foobar:master","ref":"master","sha":"b8d21cf43e1d5056190f28ea2133777a5c691de1","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/foobar/test1/pulls/5"},"html":{"href":"https://github.com/foobar/test1/pull/5"},"issue":{"href":"https://api.github.com/repos/foobar/test1/issues/5"},"comments":{"href":"https://api.github.com/repos/foobar/test1/issues/5/comments"},"review_comments":{"href":"https://api.github.com/repos/foobar/test1/pulls/5/comments"},"review_comment":{"href":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/foobar/test1/pulls/5/commits"},"statuses":{"href":"https://api.github.com/repos/foobar/test1/statuses/486f6f44465c1a90695f686742f75f9260a34034"}}},{"url":"https://api.github.com/repos/foobar/test1/pulls/4","id":90544452,"html_url":"https://github.com/foobar/test1/pull/4","diff_url":"https://github.com/foobar/test1/pull/4.diff","patch_url":"https://github.com/foobar/test1/pull/4.patch","issue_url":"https://api.github.com/repos/foobar/test1/issues/4","number":4,"state":"open","locked":false,"title":"Add
+        b","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"body":"","created_at":"2016-10-24T03:20:53Z","updated_at":"2016-10-26T06:15:38Z","closed_at":null,"merged_at":null,"merge_commit_sha":"26f2549b9022f47b8317bab0e89f078999bef127","assignee":null,"assignees":[],"milestone":null,"commits_url":"https://api.github.com/repos/foobar/test1/pulls/4/commits","review_comments_url":"https://api.github.com/repos/foobar/test1/pulls/4/comments","review_comment_url":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}","comments_url":"https://api.github.com/repos/foobar/test1/issues/4/comments","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/8720854b157289ec9c54fbf3de6446a48fddd79f","head":{"label":"foobar:branch2","ref":"branch2","sha":"8720854b157289ec9c54fbf3de6446a48fddd79f","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"base":{"label":"foobar:master","ref":"master","sha":"b8d21cf43e1d5056190f28ea2133777a5c691de1","user":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"repo":{"id":71315669,"name":"test1","full_name":"foobar/test1","owner":{"login":"foobar","id":123527,"avatar_url":"https://avatars.githubusercontent.com/u/123527?v=3","gravatar_id":"","url":"https://api.github.com/users/foobar","html_url":"https://github.com/foobar","followers_url":"https://api.github.com/users/foobar/followers","following_url":"https://api.github.com/users/foobar/following{/other_user}","gists_url":"https://api.github.com/users/foobar/gists{/gist_id}","starred_url":"https://api.github.com/users/foobar/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/foobar/subscriptions","organizations_url":"https://api.github.com/users/foobar/orgs","repos_url":"https://api.github.com/users/foobar/repos","events_url":"https://api.github.com/users/foobar/events{/privacy}","received_events_url":"https://api.github.com/users/foobar/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/foobar/test1","description":"test1","fork":false,"url":"https://api.github.com/repos/foobar/test1","forks_url":"https://api.github.com/repos/foobar/test1/forks","keys_url":"https://api.github.com/repos/foobar/test1/keys{/key_id}","collaborators_url":"https://api.github.com/repos/foobar/test1/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/foobar/test1/teams","hooks_url":"https://api.github.com/repos/foobar/test1/hooks","issue_events_url":"https://api.github.com/repos/foobar/test1/issues/events{/number}","events_url":"https://api.github.com/repos/foobar/test1/events","assignees_url":"https://api.github.com/repos/foobar/test1/assignees{/user}","branches_url":"https://api.github.com/repos/foobar/test1/branches{/branch}","tags_url":"https://api.github.com/repos/foobar/test1/tags","blobs_url":"https://api.github.com/repos/foobar/test1/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/foobar/test1/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/foobar/test1/git/refs{/sha}","trees_url":"https://api.github.com/repos/foobar/test1/git/trees{/sha}","statuses_url":"https://api.github.com/repos/foobar/test1/statuses/{sha}","languages_url":"https://api.github.com/repos/foobar/test1/languages","stargazers_url":"https://api.github.com/repos/foobar/test1/stargazers","contributors_url":"https://api.github.com/repos/foobar/test1/contributors","subscribers_url":"https://api.github.com/repos/foobar/test1/subscribers","subscription_url":"https://api.github.com/repos/foobar/test1/subscription","commits_url":"https://api.github.com/repos/foobar/test1/commits{/sha}","git_commits_url":"https://api.github.com/repos/foobar/test1/git/commits{/sha}","comments_url":"https://api.github.com/repos/foobar/test1/comments{/number}","issue_comment_url":"https://api.github.com/repos/foobar/test1/issues/comments{/number}","contents_url":"https://api.github.com/repos/foobar/test1/contents/{+path}","compare_url":"https://api.github.com/repos/foobar/test1/compare/{base}...{head}","merges_url":"https://api.github.com/repos/foobar/test1/merges","archive_url":"https://api.github.com/repos/foobar/test1/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/foobar/test1/downloads","issues_url":"https://api.github.com/repos/foobar/test1/issues{/number}","pulls_url":"https://api.github.com/repos/foobar/test1/pulls{/number}","milestones_url":"https://api.github.com/repos/foobar/test1/milestones{/number}","notifications_url":"https://api.github.com/repos/foobar/test1/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/foobar/test1/labels{/name}","releases_url":"https://api.github.com/repos/foobar/test1/releases{/id}","deployments_url":"https://api.github.com/repos/foobar/test1/deployments","created_at":"2016-10-19T03:33:41Z","updated_at":"2016-10-19T03:33:41Z","pushed_at":"2016-10-25T02:53:49Z","git_url":"git://github.com/foobar/test1.git","ssh_url":"git@github.com:foobar/test1.git","clone_url":"https://github.com/foobar/test1.git","svn_url":"https://github.com/foobar/test1","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":6,"forks":0,"open_issues":6,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/foobar/test1/pulls/4"},"html":{"href":"https://github.com/foobar/test1/pull/4"},"issue":{"href":"https://api.github.com/repos/foobar/test1/issues/4"},"comments":{"href":"https://api.github.com/repos/foobar/test1/issues/4/comments"},"review_comments":{"href":"https://api.github.com/repos/foobar/test1/pulls/4/comments"},"review_comment":{"href":"https://api.github.com/repos/foobar/test1/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/foobar/test1/pulls/4/commits"},"statuses":{"href":"https://api.github.com/repos/foobar/test1/statuses/8720854b157289ec9c54fbf3de6446a48fddd79f"}}}]'
+    http_version: 
+  recorded_at: Mon, 07 Nov 2016 02:18:18 GMT
+recorded_with: VCR 3.0.3
