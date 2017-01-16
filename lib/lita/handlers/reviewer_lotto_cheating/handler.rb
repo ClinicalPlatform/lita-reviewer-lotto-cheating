@@ -1,4 +1,4 @@
-require 'reviewer_lotto_cheating/github'
+require 'lita/handlers/reviewer_lotto_cheating/github'
 
 module Lita::Handlers::ReviewerLottoCheating
   class Handler < Lita::Handler
@@ -14,6 +14,6 @@ module Lita::Handlers::ReviewerLottoCheating
   end
 
   # load all handler classes
-  require 'reviewer_lotto_cheating/handlers/reviewer_handler'
-  require 'reviewer_lotto_cheating/handlers/user_handler'
+  require 'lita/handlers/reviewer_lotto_cheating/handlers/reviewer_handler'
+  require 'lita/handlers/reviewer_lotto_cheating/handlers/user_handler'
 end

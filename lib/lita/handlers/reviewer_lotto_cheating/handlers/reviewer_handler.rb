@@ -3,12 +3,12 @@
 require 'active_support/core_ext/integer/time'
 require 'uri'
 
-require 'reviewer_lotto_cheating/error'
-require 'reviewer_lotto_cheating/models/pullrequest'
-require 'reviewer_lotto_cheating/models/user'
-require 'reviewer_lotto_cheating/responder'
-require 'reviewer_lotto_cheating/selector'
-require 'reviewer_lotto_cheating/handler'
+require 'lita/handlers/reviewer_lotto_cheating/error'
+require 'lita/handlers/reviewer_lotto_cheating/models/pullrequest'
+require 'lita/handlers/reviewer_lotto_cheating/models/user'
+require 'lita/handlers/reviewer_lotto_cheating/responder'
+require 'lita/handlers/reviewer_lotto_cheating/selector'
+require 'lita/handlers/reviewer_lotto_cheating/handler'
 
 module Lita::Handlers::ReviewerLottoCheating
   class ReviewerHandler < Handler

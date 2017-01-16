@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'reviewer_lotto_cheating/responder'
+require 'lita/handlers/reviewer_lotto_cheating/responder'
 
 module Lita::Handlers::ReviewerLottoCheating
   class GithubCommentResponder < Responder
