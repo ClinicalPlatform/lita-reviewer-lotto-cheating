@@ -3,8 +3,8 @@
 require 'active_support/core_ext/hash'
 require 'lita-keyword-arguments'
 
-require 'reviewer_lotto_cheating/handler'
-require 'reviewer_lotto_cheating/models/user'
+require 'lita/handlers/reviewer_lotto_cheating/handler'
+require 'lita/handlers/reviewer_lotto_cheating/models/user'
 
 module Lita::Handlers::ReviewerLottoCheating
   class UserHandler < Handler

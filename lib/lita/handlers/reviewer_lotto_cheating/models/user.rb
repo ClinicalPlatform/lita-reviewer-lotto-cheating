@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/object/blank'
-require 'reviewer_lotto_cheating/model'
+require 'lita/handlers/reviewer_lotto_cheating/model'
 
 module Lita::Handlers::ReviewerLottoCheating
   class User < Model

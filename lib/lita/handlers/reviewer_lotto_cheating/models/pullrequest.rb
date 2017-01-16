@@ -3,8 +3,8 @@
 require 'active_support/core_ext/hash'
 require 'forwardable'
 
-require 'reviewer_lotto_cheating/error'
-require 'reviewer_lotto_cheating/model'
+require 'lita/handlers/reviewer_lotto_cheating/error'
+require 'lita/handlers/reviewer_lotto_cheating/model'
 
 module Lita::Handlers::ReviewerLottoCheating
   class Pullrequest < Model
