@@ -1,5 +1,6 @@
 require 'lita-reviewer-lotto-cheating'
 require 'lita/rspec'
+require 'timecop'
 require 'vcr'
 
 # A compatibility mode is provided for older plugins upgrading from Lita 3. Since this plugin

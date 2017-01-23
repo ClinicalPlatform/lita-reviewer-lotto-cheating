@@ -93,6 +93,11 @@ module Lita::Handlers::ReviewerLottoCheating
       def list
         redis.smembers(USERS_KEY).map { |name| new(name: name) }
       end
+
+      def reviewer_candidates(exclude_users = [])
+        exclude_users = Array(exclude_users)
+        list.select(&:working_today?).reject { |u| exclude_users.include?(u.name) }
+      end
     end
   end
 end

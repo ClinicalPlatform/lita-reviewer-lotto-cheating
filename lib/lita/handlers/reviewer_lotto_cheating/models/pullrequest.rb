@@ -10,7 +10,7 @@ module Lita::Handlers::ReviewerLottoCheating
   class Pullrequest < Model
     extend Forwardable
 
-    def_delegators :@pr, :html_url, :number, :id
+    def_delegators :@pr, :id, :html_url, :number, :user
 
     PULLREQUESTS_KEY         = 'pullrequests'
     ORDERED_PULLREQUESTS_KEY = 'pullrequests_ordered'
