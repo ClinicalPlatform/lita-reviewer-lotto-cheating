@@ -182,7 +182,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
       Lita.redis.sadd('users', %w(test1 test2 test3))
     end
 
-    context 'when all users is on working_days' do
+    context 'when all users are on working_days' do
       before do
         described_class.new(name: 'test1', level: 1, working_days: [1, 2, 3, 4, 5]).save
         described_class.new(name: 'test2', level: 2, working_days: [1, 2, 3, 4, 5]).save
@@ -192,7 +192,7 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
       it { expect(subject.map(&:name)).to contain_exactly(*%w(test1 test2 test3)) }
     end
 
-    context 'when some users is not on working_days' do
+    context 'when some users are not on working_days' do
       before do
         described_class.new(name: 'test1', level: 1, working_days: [1, 2, 3, 4, 5]).save
         described_class.new(name: 'test2', level: 2, working_days: [2, 3]).save
