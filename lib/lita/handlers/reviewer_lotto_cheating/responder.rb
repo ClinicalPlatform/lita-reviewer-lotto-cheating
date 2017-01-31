@@ -17,4 +17,5 @@ module Lita::Handlers::ReviewerLottoCheating
   require 'lita/handlers/reviewer_lotto_cheating/responders/chat_responder'
   require 'lita/handlers/reviewer_lotto_cheating/responders/github_comment_responder'
   require 'lita/handlers/reviewer_lotto_cheating/responders/github_status_check_responder'
+  require 'lita/handlers/reviewer_lotto_cheating/responders/github_review_request_responder'
 end
