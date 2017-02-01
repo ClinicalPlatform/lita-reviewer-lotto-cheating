@@ -80,11 +80,11 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
     context 'with no senior reviewer' do
       let (:users) { [ junior1, junior2 ] }
       let(:user_points) do
-        { 'junior1' => 2, 'junior2' => 3 }
+        { 'junior1' => 2, 'junior2' => 3, 'junior3' => 4 }
       end
 
-      it 'return only 1 reviewer' do
-        expect(subject).to eq [junior1]
+      it 'return 2 reviewers from juniors' do
+        expect(subject).to eq [junior1, junior2]
       end
     end
 
