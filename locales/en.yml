@@ -15,6 +15,7 @@ en:
           comment_failure: "Failed to write comment: %{text}"
           user_not_found: "User not found: %{name}"
           user_already_exists: "User already exists: %{name}"
+          no_user_registered: "no user registered."
         message:
           upserted: "%{name} is successfully added (updated)."
           already_assigned: "%{url} has already been assigned reviewers."

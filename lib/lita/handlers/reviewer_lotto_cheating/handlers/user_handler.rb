@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/hash'
+require 'active_support/core_ext/object/blank'
 require 'lita-keyword-arguments'
 
 require 'lita/handlers/reviewer_lotto_cheating/handler'
@@ -44,7 +45,7 @@ module Lita::Handlers::ReviewerLottoCheating
                 u.working_days.map { |wday| t('date.abbr_day_names')[wday] })
       end.join("\n")
 
-      response.reply(text)
+      response.reply(text.presence || t('error.no_user_registered'))
     end
 
     def add_user(response)
