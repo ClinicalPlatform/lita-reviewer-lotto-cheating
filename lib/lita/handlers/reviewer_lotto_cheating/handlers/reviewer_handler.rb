@@ -110,7 +110,8 @@ module Lita::Handlers::ReviewerLottoCheating
 
       reviewers =
         begin
-          Selector.call(config.reviewer_count_duration)
+          Selector.call(users: User.reviewer_candidates(pr.user.login),
+                        duration: config.reviewer_count_duration)
         rescue Error => e
           return on_error(e.message)
         end

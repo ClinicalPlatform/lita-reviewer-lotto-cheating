@@ -6,20 +6,19 @@ require 'lita/handlers/reviewer_lotto_cheating/selector'
 
 describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
   describe '.call' do
-    subject { described_class.call(*arguments) }
-    let (:arguments) { [100] }
+    subject { described_class.call(arguments) }
+    let (:arguments) { { users: users, duration: 100 } }
 
     context 'when no reviewer candidation' do
+      let(:users) { [] }
       it 'raise Error' do
         expect { subject }.to raise_error(APP::Error)
       end
     end
 
     context 'when reviewer candidations exist' do
-      before do
-        APP::User.upsert(name: 'test1', level: 1, working_days: (1..7).to_a)
-        APP::User.upsert(name: 'test2', level: 2, working_days: (1..7).to_a)
-      end
+      let(:users) { [ UserMock.new('test1', 1, [1, 2, 3, 4, 5]),
+                      UserMock.new('test2', 2, [1, 2, 3, 4, 5]) ] }
       it 'return 2 reviwers' do
         expect(subject.map(&:name)).to contain_exactly('test1', 'test2')
       end
@@ -40,40 +39,23 @@ describe Lita::Handlers::ReviewerLottoCheating::Selector, model: true do
       allow(described_class).to receive(:rand).and_return(0)
     end
 
-    context 'when all users have same working_days' do
-      context 'with a user of the least reviewd count' do
-        let(:user_points) do
-          { 'senior1' => 2, 'senior2' => 5, 'junior1' => 3, 'junior2' => 2 }
-        end
-
-        it 'select its user' do
-          expect(subject).to eq [senior1, junior2]
-        end
+    context 'with a user of the least reviewd count' do
+      let(:user_points) do
+        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 3, 'junior2' => 2 }
       end
 
-      context 'with multiple users of the same least reviewed count' do
-        let(:user_points) do
-          { 'senior1' => 2, 'senior2' => 5, 'junior1' => 2, 'junior2' => 2 }
-        end
-
-        it 'select the either of the users' do
-          expect(subject).to eq([senior1, junior1]) | eq([senior1, junior2])
-        end
+      it 'select its user' do
+        expect(subject).to eq [senior1, junior2]
       end
     end
 
-    context 'when some users have different working_days' do
-      let (:senior_parttime) { UserMock.new('senior_parttime', 2, [1, 2, 3]) }
-      let (:junior_parttime) { UserMock.new('junior_parttime', 1, [1, 2]) }
-      let (:users) { [ senior1, senior2, senior_parttime, junior1, junior2, junior_parttime ] }
-
+    context 'with multiple users of the same least reviewed count' do
       let(:user_points) do
-        { 'senior1' => 4, 'senior2' => 5, 'senior_parttime' => 3,
-          'junior1' => 6, 'junior2' => 6, 'junior_parttime' => 2 }
+        { 'senior1' => 2, 'senior2' => 5, 'junior1' => 2, 'junior2' => 2 }
       end
 
-      it 'select reviewers by cosidering working_days in a week' do
-        expect(subject).to eq [senior1, junior_parttime]
+      it 'select the either of the users' do
+        expect(subject).to eq([senior1, junior1]) | eq([senior1, junior2])
       end
     end
 

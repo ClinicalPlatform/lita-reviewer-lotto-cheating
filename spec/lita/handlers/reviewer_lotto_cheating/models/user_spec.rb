@@ -156,7 +156,6 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
     end
   end
 
-
   describe '.list' do
     subject { described_class.list }
 
@@ -173,6 +172,49 @@ describe Lita::Handlers::ReviewerLottoCheating::User, model: true do
       end
     end
   end
+
+  describe '.reviewer_candidates' do
+    subject { described_class.reviewer_candidates(*arguments) }
+    before do
+      # Fixed current week day to monday => working_day = 1
+      Timecop.freeze(Time.local(2017, 1, 23))
+      # register user list
+      Lita.redis.sadd('users', %w(test1 test2 test3))
+    end
+
+    context 'when all users are on working_days' do
+      before do
+        described_class.new(name: 'test1', level: 1, working_days: [1, 2, 3, 4, 5]).save
+        described_class.new(name: 'test2', level: 2, working_days: [1, 2, 3, 4, 5]).save
+        described_class.new(name: 'test3', level: 2, working_days: [1, 2, 3, 4, 5]).save
+      end
+      let(:arguments) { [] }
+      it { expect(subject.map(&:name)).to contain_exactly(*%w(test1 test2 test3)) }
+    end
+
+    context 'when some users are not on working_days' do
+      before do
+        described_class.new(name: 'test1', level: 1, working_days: [1, 2, 3, 4, 5]).save
+        described_class.new(name: 'test2', level: 2, working_days: [2, 3]).save
+        described_class.new(name: 'test3', level: 2, working_days: [1, 2, 3]).save
+      end
+
+      let(:arguments) { [] }
+      it { expect(subject.map(&:name)).to contain_exactly(*%w(test1 test3)) }
+    end
+
+    context 'with exclude_users' do
+      before do
+        described_class.new(name: 'test1', level: 1, working_days: [1, 2, 3, 4, 5]).save
+        described_class.new(name: 'test2', level: 2, working_days: [1, 2, 3, 4, 5]).save
+        described_class.new(name: 'test3', level: 2, working_days: [1, 2, 3, 4, 5]).save
+      end
+
+      let(:arguments) { ['test1'] }
+      it { expect(subject.map(&:name)).to contain_exactly(*%w(test2 test3)) }
+    end
+  end
+
 
   describe '.find' do
     subject { described_class.find(user.name) }

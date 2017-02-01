@@ -7,8 +7,7 @@ require 'lita/handlers/reviewer_lotto_cheating/error'
 module Lita::Handlers::ReviewerLottoCheating
   class Selector
     class << self
-      def call(duration)
-        users = User.list.select(&:working_today?)
+      def call(users:, duration:)
         raise Error.new('no user as reviewer candidation') if users.empty?
 
         user_points = Pullrequest.calc_review_counts(duration: duration)
