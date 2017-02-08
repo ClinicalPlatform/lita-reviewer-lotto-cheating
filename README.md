@@ -88,6 +88,12 @@ $ bundle exec lita
 Choice 2 reviewers for `GITHUB_PR_URL`.
 And then notice them to us on chat, `GITHUB_PR_URL` comment and status checker
 
+Options:
+
+- `-f` , `--force`
+
+  force to assign reviewers even though GITHUB_PR_URL has been alraedy assigned them to.
+
 #### lita reviewer list
 
     lita reviewer list

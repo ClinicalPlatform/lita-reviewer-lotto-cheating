@@ -38,11 +38,17 @@ module Lita::Handlers::ReviewerLottoCheating
       help: {
         'reviewer all' => t('help.reviewer_all')
       }
+
     route /reviewer\s+(#{ URI.regexp })\b/,
       :assign_reviewers_from_chat,
       command: true,
+      kwargs: {
+        force: { short: 'f', boolean: true }
+      },
       help: {
-        'reviewer GITHUB_PR_URL' => t('help.reviewer')
+        'reviewer GITHUB_PR_URL ' \
+        '[-f | --force]' \
+          => t('help.reviewer')
       }
 
     # ex: http://localhost:8080/assign_reviewer/all
@@ -64,7 +70,9 @@ module Lita::Handlers::ReviewerLottoCheating
 
     def assign_reviewers_from_http(request, _response)
       path = request.env['router.params'][:path].join('/')
-      assign_reviewers_from_path(path)
+      queries = URI.decode_www_form(request.env['QUERY_STRING']).to_h
+      # NOTE: Accept query strings like: 'force=1', 'force=true' and 'force'
+      assign_reviewers_from_path(path, force: queries.member?('force'))
     end
 
     def assign_reviewers_to_all_from_chat(_response)
@@ -72,7 +80,8 @@ module Lita::Handlers::ReviewerLottoCheating
     end
 
     def assign_reviewers_from_chat(response)
-      assign_reviewers_from_url(response.matches[0][0])
+      force = response.extensions[:kwargs][:force]
+      assign_reviewers_from_url(response.matches[0][0], force: force)
     end
 
     def assign_reviewers_to_all
@@ -87,24 +96,26 @@ module Lita::Handlers::ReviewerLottoCheating
       prs.each do |pr| assign_reviewers(pr) end
     end
 
-    def assign_reviewers_from_path(path)
+    def assign_reviewers_from_path(path, force: false)
       url = "https://github.com/#{path}"
-      assign_reviewers_from_url(url)
+      assign_reviewers_from_url(url, force: force)
     end
 
-    def assign_reviewers_from_url(url)
+    def assign_reviewers_from_url(url, force: false)
       begin
         pr = Pullrequest.from_url(url)
       rescue Error, Octokit::Error => e
         return on_error(e.message)
       end
 
-      assign_reviewers(pr)
+      assign_reviewers(pr, force: force)
     end
 
     private
 
-    def assign_reviewers(pr)
+    def assign_reviewers(pr, force: false)
+      pr.delete if force
+
       return on_exit(t('message.already_assigned', url: pr.html_url)) \
         if pr.assigned?
 

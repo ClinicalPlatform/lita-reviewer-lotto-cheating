@@ -108,7 +108,19 @@ describe Lita::Handlers::ReviewerLottoCheating::ReviewerHandler, lita_handler: t
         end
         it { is_expected.to eq 'https://github.com/foobar/test1/pull/3 has already been assigned reviewers.' }
       end
+
+      context 'and send reviewer command again with -f option' do
+        before do
+          VCR.use_cassette('foobar/test1/pull/3') do
+            send_command('reviewer https://github.com/foobar/test1/pull/3 -f')
+          end
+        end
+
+        it do
+          is_expected.to eq \
+            '@test2, @test1 are assigned as the reviewers for https://github.com/foobar/test1/pull/3!!'
+        end
+      end
     end
   end
 end
-
