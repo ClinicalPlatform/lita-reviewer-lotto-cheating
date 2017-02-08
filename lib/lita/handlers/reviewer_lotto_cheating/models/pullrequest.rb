@@ -37,6 +37,12 @@ module Lita::Handlers::ReviewerLottoCheating
       @redis.sadd(key, reviewers.map(&:name))
     end
 
+    def delete
+      @redis.srem(PULLREQUESTS_KEY, @pr.id)
+      @redis.zrem(ORDERED_PULLREQUESTS_KEY, key)
+      @redis.del(key)
+    end
+
     def latest_commit
       @pr.head.sha
     end
