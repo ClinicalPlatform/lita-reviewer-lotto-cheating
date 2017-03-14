@@ -5,7 +5,7 @@ en:
         application_name: 'LitaReviewer'
         help:
           reviewer: "Choice 2 reviewers for GITHUB_PR_URL"
-          reviewer_all: "Choice 2 reviewers for each pullrequest requires review"
+          reviewer_all: "Choice 2 reviewers for every pullrequest requires review"
           list_user: "List current reviewer candidates"
           add_user: "Add <USERNAME> to reviewer candidates ( or update <USERNAME> if already exists )"
           update_user: "Update <USERNAME> properties"
