@@ -1,5 +1,7 @@
 # lita-reviewer-lotto-cheating
 
+[![CircleCI](https://circleci.com/gh/ClinicalPlatform/lita-reviewer-lotto-cheating.svg?style=svg)](https://circleci.com/gh/ClinicalPlatform/lita-reviewer-lotto-cheating)
+
 This handler checks pullrequests on github repos specified and when it finds them need to review, assign reviewers for them based on both review counts of each user before and a little bit of lotto, and then notice to us.
 
 ## Installation
