@@ -12,6 +12,9 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
+# To enable debug log with testing, uncomment following line.
+# Lita.logger.level = Logger::DEBUG
+
 RSpec.configure do |config|
   APP = Lita::Handlers::ReviewerLottoCheating
 
