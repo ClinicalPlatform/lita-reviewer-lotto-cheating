@@ -27,6 +27,14 @@ module Lita::Handlers::ReviewerLottoCheating
            type: [Fixnum, ActiveSupport::Duration],
            default: 30 * 24 * 60 * 60
 
+    # percentage number of the randomness factor in the reviwers selection factors
+    #
+    # it can be specified as `Fixnum` literal (0-100)
+    config :random_weight, type: Fixnum, default: 20
+    config :random_weight do
+      validate { |v| !(0..100).include?(v) }
+    end
+
     # room (channel) or user to which this handler sends messages
     config :chat_target, type: Hash, default: { room: '#general' }
 
@@ -111,7 +119,8 @@ module Lita::Handlers::ReviewerLottoCheating
       reviewers =
         begin
           Selector.call(users: User.reviewer_candidates(pr.user.login),
-                        duration: config.reviewer_count_duration)
+                        duration: config.reviewer_count_duration,
+                        random_weight: config.random_weight)
         rescue Error => e
           return on_error(e.message)
         end
