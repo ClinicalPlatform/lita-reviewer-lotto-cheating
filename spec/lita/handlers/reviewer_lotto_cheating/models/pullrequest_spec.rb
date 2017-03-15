@@ -67,6 +67,30 @@ describe Lita::Handlers::ReviewerLottoCheating::Pullrequest, model: true do
     end
   end
 
+  describe '#delete' do
+    before do
+      pullrequest.save([
+        UserMock.new('user1', 1),
+        UserMock.new('user2', 2),
+      ])
+    end
+
+    subject { pullrequest.delete }
+
+    it 'delete data properly from redis' do
+      expect { subject }.to \
+        change {
+          Lita.redis.sismember('pullrequests', pullrequest.id)
+        }.from(be_truthy).to(be_falsy).and \
+        change {
+          Lita.redis.zrange('pullrequests_ordered', 0, -1)
+        }.from(['pullrequests:/foobar/test1/pull/3']).to([]).and \
+        change {
+          Lita.redis.smembers('pullrequests:/foobar/test1/pull/3')
+        }.from(contain_exactly('user1', 'user2')).to([])
+    end
+  end
+
   describe '.list' do
     subject do
       VCR.use_cassette('foobar/test1/pulls') do

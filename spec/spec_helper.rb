@@ -34,6 +34,12 @@ RSpec.configure do |config|
     keys = Lita.redis.keys("*")
     Lita.redis.del(keys) unless keys.empty?
   end
+
+  # Register lita extensions.
+  # see: https://docs.lita.io/plugin-authoring/extensions/#using-extensions
+  config.before(:each, lita_handler: true) do
+    registry.register_hook(:trigger_route, Lita::Extensions::KeywordArguments)
+  end
 end
 
 class UserMock < Struct.new(:name, :level, :working_days); end
