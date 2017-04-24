@@ -7,7 +7,7 @@ module Lita::Handlers::ReviewerLottoCheating
   class Github
     extend Forwardable
 
-    def_delegators :@client, :add_comment, :create_status, :pull_request
+    def_delegators :@client, :add_comment, :pull_request, :request_pull_request_review
 
     def initialize(access_token)
       @client = Octokit::Client.new(access_token: access_token)
