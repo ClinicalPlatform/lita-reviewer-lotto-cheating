@@ -23,12 +23,12 @@ module Lita::Handlers::ReviewerLottoCheating
         hasEmptyGroup = [siniors, juniors].any?(&:empty?)
 
         [siniors, juniors]
+          .reject(&:empty?)
           .map do |group|
             sorted = sort_users_by_point_and_lotto(group, reviewed_counts, random_weight: random_weight)
             sorted.take(hasEmptyGroup ? 2 : 1)
           end
           .flatten
-          .compact
       end
 
       def sort_users_by_point_and_lotto(users, reviewed_counts, random_weight: nil)
