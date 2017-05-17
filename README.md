@@ -133,3 +133,17 @@ Options:
     lita reviewer delete USERNAME
 
 Delete `USERNAME` from reviewer candidates
+
+### Tips
+
+#### Reset users information
+
+```sh
+$ redis-cli KEYS "lita:handlers:reviewer_lotto_cheating:users*" | xargs redis-cli DEL
+```
+
+#### Reset pullrequest histories that are assigned to reviewers
+
+```sh
+$ redis-cli KEYS "lita:handlers:reviewer_lotto_cheating:pullrequests*" | xargs redis-cli DEL
+```
