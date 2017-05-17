@@ -36,12 +36,12 @@ generate access token on github form [here](https://github.com/settings/tokens/n
 
 ### Optional attributes
 
-* `reviewer_count_duration` (Fixnum or ActiveSupport::Duration)
+* `reviewer_count_duration` (Integer or ActiveSupport::Duration)
 
    duration time (second) from now, during which we calculate review count
    of each user for selecting reviewers
 
-* `random_weight` (Fixnum in 0..100)
+* `random_weight` (Integer in 0..100)
 
    percentage number of the randomness factor in the reviwers selection factors
 
