@@ -23,12 +23,12 @@ module Lita::Handlers::ReviewerLottoCheating
         hasEmptyGroup = [siniors, juniors].any?(&:empty?)
 
         [siniors, juniors]
+          .reject(&:empty?)
           .map do |group|
             sorted = sort_users_by_point_and_lotto(group, reviewed_counts, random_weight: random_weight)
             sorted.take(hasEmptyGroup ? 2 : 1)
           end
           .flatten
-          .compact
       end
 
       def sort_users_by_point_and_lotto(users, reviewed_counts, random_weight: nil)
@@ -41,7 +41,10 @@ module Lita::Handlers::ReviewerLottoCheating
 
         random_weight = random_weight.try! { self % 101 } || 20    # default 20
         review_weight = 100 - random_weight
-        Lita.logger.debug("Sort reviewrs (reviewed : random is #{review_weight} : #{random_weight})")
+        Lita.logger.debug(
+          "Sort reviewers [#{users.map(&:name).join(', ')}] by " \
+          "reviewed count : random = #{review_weight} : #{random_weight}"
+        )
 
         max_point = user_points.max_by { |t| t[1] }&.at(1)&.nonzero? || 100
 
