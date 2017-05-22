@@ -22,15 +22,15 @@ module Lita::Handlers::ReviewerLottoCheating
     # duration time (second) from now, during which we calculate review count
     # of each user for selecting reviewers
     #
-    # it can be specified `Fixnum` literal or `ActiveSupport::Duration` syntax
+    # it can be specified `Integer` literal or `ActiveSupport::Duration` syntax
     config :reviewer_count_duration,
-           type: [Fixnum, ActiveSupport::Duration],
+           type: [Integer, ActiveSupport::Duration],
            default: 30 * 24 * 60 * 60
 
     # percentage number of the randomness factor in the reviwers selection factors
     #
-    # it can be specified as `Fixnum` literal (0-100)
-    config :random_weight, type: Fixnum, default: 20
+    # it can be specified as `Integer` literal (0-100)
+    config :random_weight, type: Integer, default: 20
     config :random_weight do
       validate { |v| !(0..100).include?(v) }
     end
